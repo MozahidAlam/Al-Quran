@@ -139,7 +139,7 @@ header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-fi
 .sp{background:var(--bg2);border:1.5px solid var(--border2);border-radius:50px;padding:.45rem 1.1rem;display:flex;align-items:center;gap:.45rem;font-size:.74rem;transition:all .2s;cursor:default}
 .sp:hover{border-color:var(--border);box-shadow:var(--shadow)}
 .sdot{width:7px;height:7px;border-radius:50%}
-.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;width:100%;max-width:620px;margin-top:.6rem;animation:fadeUp .8s ease .4s both}
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;width:100%;max-width:680px;margin-top:.6rem;animation:fadeUp .8s ease .4s both}
 .qcard{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.2rem .9rem;cursor:pointer;transition:all .28s;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 .qcard::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .28s}
 .qcard:hover{transform:translateY(-5px);border-color:var(--border2);box-shadow:0 16px 40px rgba(0,0,0,.25)}
@@ -152,6 +152,7 @@ header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-fi
 .qcard:nth-child(6)::before{background:linear-gradient(135deg,rgba(251,146,60,.1),transparent)}
 .qcard:nth-child(7)::before{background:linear-gradient(135deg,rgba(59,130,246,.1),transparent)}
 .qcard:nth-child(8)::before{background:linear-gradient(135deg,rgba(34,197,94,.1),transparent)}
+.qcard:nth-child(9)::before{background:linear-gradient(135deg,rgba(240,192,96,.1),transparent)}
 .qi{font-size:1.8rem;margin-bottom:.5rem;display:block}
 .qn{font-size:.84rem;color:var(--text);font-weight:600}
 .qs{font-size:.68rem;color:var(--text2);margin-top:.14rem}
@@ -296,6 +297,101 @@ header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-fi
 .tt{border:1.5px solid rgba(0,212,200,.45);color:var(--teal)}
 .tr{border:1.5px solid rgba(255,107,157,.45);color:var(--rose)}
 
+/* ===== TRACKER STYLES ===== */
+.tracker-hero{background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(0,212,200,.06));border:1.5px solid rgba(74,222,128,.2);border-radius:22px;padding:1.8rem;margin-bottom:1.6rem;position:relative;overflow:hidden}
+.tracker-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(74,222,128,.1),transparent 60%);pointer-events:none}
+.streak-display{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.streak-main{text-align:center}
+.streak-fire{font-size:3rem;animation:fireFlicker 1.5s ease-in-out infinite}
+@keyframes fireFlicker{0%,100%{transform:scale(1) rotate(-2deg);filter:drop-shadow(0 0 8px rgba(251,146,60,.5))}50%{transform:scale(1.08) rotate(2deg);filter:drop-shadow(0 0 18px rgba(251,146,60,.8))}}
+.streak-num{font-size:3.5rem;font-weight:700;color:var(--orange);font-family:'Cormorant Garamond',serif;line-height:1;text-shadow:0 0 30px rgba(251,146,60,.3)}
+.streak-label{font-size:.75rem;color:var(--text2);margin-top:.2rem;letter-spacing:.06em}
+.streak-stats{display:flex;gap:1.2rem;flex-wrap:wrap}
+.sstat{background:var(--bg3);border:1.5px solid var(--border2);border-radius:13px;padding:.9rem 1.2rem;text-align:center;min-width:90px}
+.sstat-num{font-size:1.6rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.sstat-lbl{font-size:.65rem;color:var(--text3);margin-top:.1rem;letter-spacing:.04em}
+
+/* Namaz tracker */
+.namaz-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-bottom:1.3rem}
+.nz-btn{background:var(--card-bg);border:2px solid var(--border2);border-radius:14px;padding:.9rem .5rem;cursor:pointer;text-align:center;transition:all .25s;position:relative;overflow:hidden}
+.nz-btn::after{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;transition:opacity .25s}
+.nz-btn:hover{transform:translateY(-3px)}
+.nz-btn.done{border-color:var(--green);background:rgba(74,222,128,.08)}
+.nz-btn.done::after{background:linear-gradient(135deg,rgba(74,222,128,.12),transparent);opacity:1}
+.nz-icon{font-size:1.5rem;margin-bottom:.35rem;display:block}
+.nz-name{font-size:.72rem;color:var(--text);font-weight:600}
+.nz-ar{font-family:'Amiri Quran',serif;font-size:.75rem;color:var(--gold2);direction:rtl;margin-top:.15rem}
+.nz-check{position:absolute;top:.4rem;right:.4rem;width:18px;height:18px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#050508;font-weight:700;opacity:0;transform:scale(0);transition:all .2s}
+.nz-btn.done .nz-check{opacity:1;transform:scale(1)}
+
+/* Tracker section card */
+.tracker-section{background:var(--card-bg);border:1.5px solid var(--border);border-radius:18px;padding:1.4rem;margin-bottom:1.2rem;box-shadow:0 2px 10px rgba(0,0,0,.08);animation:fup .32s ease both}
+.tracker-section-title{display:flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1.5px solid var(--border)}
+.ts-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+
+/* Toggle switch */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
+.toggle-label{font-size:.87rem;color:var(--text);font-weight:500}
+.toggle-sub{font-size:.7rem;color:var(--text3);margin-top:.1rem}
+.toggle-sw{position:relative;width:52px;height:28px;flex-shrink:0}
+.toggle-sw input{opacity:0;width:0;height:0;position:absolute}
+.toggle-track{position:absolute;inset:0;background:var(--border2);border-radius:50px;cursor:pointer;transition:background .25s;border:1.5px solid var(--border2)}
+.toggle-track::after{content:'';position:absolute;left:3px;top:50%;transform:translateY(-50%);width:20px;height:20px;background:#fff;border-radius:50%;transition:left .25s;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.toggle-sw input:checked + .toggle-track{background:var(--green);border-color:var(--green)}
+.toggle-sw input:checked + .toggle-track::after{left:27px}
+
+/* Quran progress */
+.quran-prog-row{display:flex;align-items:center;gap:.9rem;padding:.5rem 0}
+.qprog-bar-wrap{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.qprog-bar{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--teal));transition:width .4s ease}
+.qprog-lbl{font-size:.72rem;color:var(--text2);white-space:nowrap;min-width:50px;text-align:right}
+.qprog-btns{display:flex;gap:.5rem;margin-top:.7rem}
+.qprog-btn{flex:1;background:var(--bg3);border:1.5px solid var(--border2);color:var(--text2);padding:.5rem;border-radius:9px;cursor:pointer;font-size:.8rem;font-family:inherit;transition:all .2s;text-align:center}
+.qprog-btn:hover{border-color:var(--gold);color:var(--gold)}
+.qprog-input{background:var(--input-bg);border:1.5px solid var(--border2);border-radius:9px;padding:.5rem .8rem;color:var(--text);font-family:inherit;font-size:.86rem;width:80px;outline:none;text-align:center;transition:border-color .2s}
+.qprog-input:focus{border-color:var(--gold)}
+
+/* Weekly report */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem;margin-top:.5rem}
+.week-day{text-align:center}
+.wd-lbl{font-size:.6rem;color:var(--text3);margin-bottom:.3rem;letter-spacing:.04em}
+.wd-bar-wrap{height:60px;display:flex;align-items:flex-end;justify-content:center}
+.wd-bar{width:100%;border-radius:4px 4px 0 0;transition:height .4s ease;min-height:3px}
+.wd-pct{font-size:.6rem;color:var(--text2);margin-top:.25rem}
+.wd-dot{width:8px;height:8px;border-radius:50%;margin:0 auto .25rem}
+
+/* Report summary cards */
+.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1.3rem}
+.rep-card{background:var(--bg3);border:1.5px solid var(--border);border-radius:14px;padding:1.1rem .9rem;text-align:center;transition:all .2s}
+.rep-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.rep-icon{font-size:1.6rem;margin-bottom:.35rem}
+.rep-val{font-size:1.5rem;font-weight:700;font-family:'Cormorant Garamond',serif;margin-bottom:.15rem}
+.rep-lbl{font-size:.67rem;color:var(--text3);letter-spacing:.04em}
+
+/* Date tabs */
+.date-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem;background:var(--bg3);border:1.5px solid var(--border2);border-radius:50px;padding:.3rem}
+.date-tab{flex:1;padding:.42rem .7rem;border-radius:50px;text-align:center;font-size:.74rem;cursor:pointer;transition:all .2s;color:var(--text2);font-weight:500}
+.date-tab.active{background:var(--card-bg);color:var(--gold);font-weight:700;border:1.5px solid rgba(240,192,96,.25);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+/* Save button */
+.save-btn{width:100%;background:linear-gradient(135deg,var(--green),#22c55e);border:none;color:#050508;padding:.85rem;border-radius:13px;cursor:pointer;font-size:.95rem;font-weight:700;font-family:inherit;margin-top:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(74,222,128,.25)}
+.save-btn:hover{transform:scale(1.02);box-shadow:0 6px 28px rgba(74,222,128,.35)}
+
+/* Progress ring */
+.ring-wrap{position:relative;width:110px;height:110px;flex-shrink:0}
+.ring-svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--border2);stroke-width:8}
+.ring-fill{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-pct{font-size:1.4rem;font-weight:700;color:var(--text);font-family:'Cormorant Garamond',serif}
+.ring-sub{font-size:.58rem;color:var(--text3);letter-spacing:.04em}
+
+/* History calendar */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;margin-top:.6rem}
+.cal-cell{aspect-ratio:1;border-radius:6px;cursor:default;position:relative;transition:transform .15s}
+.cal-cell:hover{transform:scale(1.1)}
+.cal-day-lbl{font-size:.55rem;color:var(--text3);text-align:center;padding-bottom:.25rem}
+
 /* ===== FOOTER ===== */
 footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--border);margin-top:1.5rem;position:relative;z-index:1;transition:border-color var(--transition)}
 .fara{font-family:'Amiri Quran',serif;font-size:1.4rem;background:linear-gradient(90deg,var(--gold),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.4rem}
@@ -318,6 +414,8 @@ footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--b
   .logo-sub{display:none}
   .ngrid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
   .qgrid{grid-template-columns:repeat(2,1fr)}
+  .namaz-grid{grid-template-columns:repeat(5,1fr)}
+  .report-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:540px){
   :root{--arabic:1.5rem}
@@ -327,6 +425,10 @@ footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--b
   .pw{order:10;flex:none;width:100%}
   .qgrid{grid-template-columns:1fr 1fr}
   .hi{gap:.5rem}
+  .namaz-grid{gap:.4rem}
+  .report-grid{grid-template-columns:repeat(3,1fr);gap:.5rem}
+  .streak-stats{gap:.7rem}
+  .sstat{padding:.7rem .8rem;min-width:70px}
 }
 </style>
 </head>
@@ -368,6 +470,7 @@ footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--b
       <div class="nitem" id="nav-kadr" onclick="showPage('kadr')"><div class="nicon" style="background:rgba(155,109,255,.12)">🌙</div><div><div class="ntext">শবে কদর</div><div class="nsub">লাইলাতুল কদর</div></div></div>
       <div class="nitem" id="nav-hadith" onclick="showPage('hadith')"><div class="nicon" style="background:rgba(155,109,255,.12)">📜</div><div><div class="ntext">হাদিস</div><div class="nsub">নির্বাচিত</div></div></div>
       <div class="nitem" id="nav-names" onclick="showPage('names')"><div class="nicon" style="background:rgba(251,146,60,.12)">✨</div><div><div class="ntext">আসমাউল হুসনা</div><div class="nsub">৯৯ নাম</div></div></div>
+      <div class="nitem" id="nav-tracker" onclick="showPage('tracker')"><div class="nicon" style="background:rgba(74,222,128,.12)">📊</div><div><div class="ntext">ইবাদত ট্র্যাকার</div><div class="nsub">স্ট্রিক ও রিপোর্ট</div></div></div>
       <div class="nitem" id="nav-tasbih" onclick="showPage('tasbih')"><div class="nicon" style="background:rgba(74,222,128,.12)">📿</div><div><div class="ntext">তাসবিহ গণনা</div><div class="nsub">স্মরণ</div></div></div>
       <div class="nitem" id="nav-zakat" onclick="showPage('zakat')"><div class="nicon" style="background:rgba(251,146,60,.12)">💰</div><div><div class="ntext">যাকাত</div><div class="nsub">হিসাব ও তথ্য</div></div></div>
       <div class="nitem" id="nav-prayer" onclick="showPage('prayer')"><div class="nicon" style="background:rgba(34,197,94,.12)">🕌</div><div><div class="ntext">নামাজের সময়</div><div class="nsub">সময়সূচী</div></div></div>
@@ -384,7 +487,7 @@ footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--b
     <footer>
       <div class="fara">جَزَاكَ اللَّهُ خَيْرًا</div>
       <div class="cred"><span class="cbadge">DEV</span> Developed by <strong>Mozahid</strong> · Islamic API · cdn.islamic.network</div>
-      <div style="font-size:.68rem;color:var(--text3);margin-top:.28rem">Trusted Arabic & Bengali Quran sources · Version 2.0</div>
+      <div style="font-size:.68rem;color:var(--text3);margin-top:.28rem">Trusted Arabic & Bengali Quran sources · Version 2.1 · ইবাদত ট্র্যাকার যুক্ত</div>
     </footer>
   </div>
 </div>
@@ -408,7 +511,6 @@ const SURAHS=[
 {n:1,ar:"الفاتحة",bn:"আল-ফাতিহা",v:7,t:"মক্কী"},{n:2,ar:"البقرة",bn:"আল-বাকারা",v:286,t:"মাদানী"},{n:3,ar:"آل عمران",bn:"আল-ইমরান",v:200,t:"মাদানী"},{n:4,ar:"النساء",bn:"আন-নিসা",v:176,t:"মাদানী"},{n:5,ar:"المائدة",bn:"আল-মায়িদা",v:120,t:"মাদানী"},{n:6,ar:"الأنعام",bn:"আল-আনআম",v:165,t:"মক্কী"},{n:7,ar:"الأعراف",bn:"আল-আরাফ",v:206,t:"মক্কী"},{n:8,ar:"الأنفال",bn:"আল-আনফাল",v:75,t:"মাদানী"},{n:9,ar:"التوبة",bn:"আত-তাওবা",v:129,t:"মাদানী"},{n:10,ar:"يونس",bn:"ইউনুস",v:109,t:"মক্কী"},{n:11,ar:"هود",bn:"হুদ",v:123,t:"মক্কী"},{n:12,ar:"يوسف",bn:"ইউসুফ",v:111,t:"মক্কী"},{n:13,ar:"الرعد",bn:"আর-রাদ",v:43,t:"মাদানী"},{n:14,ar:"إبراهيم",bn:"ইবরাহীম",v:52,t:"মক্কী"},{n:15,ar:"الحجر",bn:"আল-হিজর",v:99,t:"মক্কী"},{n:16,ar:"النحل",bn:"আন-নাহল",v:128,t:"মক্কী"},{n:17,ar:"الإسراء",bn:"আল-ইসরা",v:111,t:"মক্কী"},{n:18,ar:"الكهف",bn:"আল-কাহফ",v:110,t:"মক্কী"},{n:19,ar:"مريم",bn:"মারইয়াম",v:98,t:"মক্কী"},{n:20,ar:"طه",bn:"ত্বহা",v:135,t:"মক্কী"},{n:21,ar:"الأنبياء",bn:"আল-আম্বিয়া",v:112,t:"মক্কী"},{n:22,ar:"الحج",bn:"আল-হাজ্জ",v:78,t:"মাদানী"},{n:23,ar:"المؤمنون",bn:"আল-মুমিনুন",v:118,t:"মক্কী"},{n:24,ar:"النور",bn:"আন-নূর",v:64,t:"মাদানী"},{n:25,ar:"الفرقان",bn:"আল-ফুরকান",v:77,t:"মক্কী"},{n:26,ar:"الشعراء",bn:"আশ-শুআরা",v:227,t:"মক্কী"},{n:27,ar:"النمل",bn:"আন-নামল",v:93,t:"মক্কী"},{n:28,ar:"القصص",bn:"আল-কাসাস",v:88,t:"মক্কী"},{n:29,ar:"العنكبوت",bn:"আল-আনকাবুত",v:69,t:"মক্কী"},{n:30,ar:"الروم",bn:"আর-রুম",v:60,t:"মক্কী"},{n:31,ar:"لقمان",bn:"লুকমান",v:34,t:"মক্কী"},{n:32,ar:"السجدة",bn:"আস-সাজদা",v:30,t:"মক্কী"},{n:33,ar:"الأحزاب",bn:"আল-আহযাব",v:73,t:"মাদানী"},{n:34,ar:"سبأ",bn:"সাবা",v:54,t:"মক্কী"},{n:35,ar:"فاطر",bn:"ফাতির",v:45,t:"মক্কী"},{n:36,ar:"يس",bn:"ইয়াসীন",v:83,t:"মক্কী"},{n:37,ar:"الصافات",bn:"আস-সাফফাত",v:182,t:"মক্কী"},{n:38,ar:"ص",bn:"সাদ",v:88,t:"মক্কী"},{n:39,ar:"الزمر",bn:"আয-যুমার",v:75,t:"মক্কী"},{n:40,ar:"غافر",bn:"গাফির",v:85,t:"মক্কী"},{n:41,ar:"فصلت",bn:"ফুস্সিলাত",v:54,t:"মক্কী"},{n:42,ar:"الشورى",bn:"আশ-শুরা",v:53,t:"মক্কী"},{n:43,ar:"الزخرف",bn:"আয-যুখরুফ",v:89,t:"মক্কী"},{n:44,ar:"الدخان",bn:"আদ-দুখান",v:59,t:"মক্কী"},{n:45,ar:"الجاثية",bn:"আল-জাসিয়া",v:37,t:"মক্কী"},{n:46,ar:"الأحقاف",bn:"আল-আহকাফ",v:35,t:"মক্কী"},{n:47,ar:"محمد",bn:"মুহাম্মদ",v:38,t:"মাদানী"},{n:48,ar:"الفتح",bn:"আল-ফাতহ",v:29,t:"মাদানী"},{n:49,ar:"الحجرات",bn:"আল-হুজুরাত",v:18,t:"মাদানী"},{n:50,ar:"ق",bn:"কাফ",v:45,t:"মক্কী"},{n:51,ar:"الذاريات",bn:"আয-যারিয়াত",v:60,t:"মক্কী"},{n:52,ar:"الطور",bn:"আত-তূর",v:49,t:"মক্কী"},{n:53,ar:"النجم",bn:"আন-নাজম",v:62,t:"মক্কী"},{n:54,ar:"القمر",bn:"আল-কামার",v:55,t:"মক্কী"},{n:55,ar:"الرحمن",bn:"আর-রহমান",v:78,t:"মাদানী"},{n:56,ar:"الواقعة",bn:"আল-ওয়াকিআ",v:96,t:"মক্কী"},{n:57,ar:"الحديد",bn:"আল-হাদীদ",v:29,t:"মাদানী"},{n:58,ar:"المجادلة",bn:"আল-মুজাদালা",v:22,t:"মাদানী"},{n:59,ar:"الحشر",bn:"আল-হাশর",v:24,t:"মাদানী"},{n:60,ar:"الممتحنة",bn:"আল-মুমতাহানা",v:13,t:"মাদানী"},{n:61,ar:"الصف",bn:"আস-সাফ",v:14,t:"মাদানী"},{n:62,ar:"الجمعة",bn:"আল-জুমুআ",v:11,t:"মাদানী"},{n:63,ar:"المنافقون",bn:"আল-মুনাফিকুন",v:11,t:"মাদানী"},{n:64,ar:"التغابن",bn:"আত-তাগাবুন",v:18,t:"মাদানী"},{n:65,ar:"الطلاق",bn:"আত-তালাক",v:12,t:"মাদানী"},{n:66,ar:"التحريم",bn:"আত-তাহরীম",v:12,t:"মাদানী"},{n:67,ar:"الملك",bn:"আল-মুলক",v:30,t:"মক্কী"},{n:68,ar:"القلم",bn:"আল-কালাম",v:52,t:"মক্কী"},{n:69,ar:"الحاقة",bn:"আল-হাক্কা",v:52,t:"মক্কী"},{n:70,ar:"المعارج",bn:"আল-মাআরিজ",v:44,t:"মক্কী"},{n:71,ar:"نوح",bn:"নুহ",v:28,t:"মক্কী"},{n:72,ar:"الجن",bn:"আল-জিন",v:28,t:"মক্কী"},{n:73,ar:"المزمل",bn:"আল-মুযাম্মিল",v:20,t:"মক্কী"},{n:74,ar:"المدثر",bn:"আল-মুদ্দাস্সির",v:56,t:"মক্কী"},{n:75,ar:"القيامة",bn:"আল-কিয়ামা",v:40,t:"মক্কী"},{n:76,ar:"الإنسان",bn:"আল-ইনসান",v:31,t:"মাদানী"},{n:77,ar:"المرسلات",bn:"আল-মুরসালাত",v:50,t:"মক্কী"},{n:78,ar:"النبأ",bn:"আন-নাবা",v:40,t:"মক্কী"},{n:79,ar:"النازعات",bn:"আন-নাযিআত",v:46,t:"মক্কী"},{n:80,ar:"عبس",bn:"আবাসা",v:42,t:"মক্কী"},{n:81,ar:"التكوير",bn:"আত-তাকভীর",v:29,t:"মক্কী"},{n:82,ar:"الإنفطار",bn:"আল-ইনফিতার",v:19,t:"মক্কী"},{n:83,ar:"المطففين",bn:"আল-মুতাফফিফীন",v:36,t:"মক্কী"},{n:84,ar:"الإنشقاق",bn:"আল-ইনশিকাক",v:25,t:"মক্কী"},{n:85,ar:"البروج",bn:"আল-বুরুজ",v:22,t:"মক্কী"},{n:86,ar:"الطارق",bn:"আত-তারিক",v:17,t:"মক্কী"},{n:87,ar:"الأعلى",bn:"আল-আলা",v:19,t:"মক্কী"},{n:88,ar:"الغاشية",bn:"আল-গাশিয়া",v:26,t:"মক্কী"},{n:89,ar:"الفجر",bn:"আল-ফাজর",v:30,t:"মক্কী"},{n:90,ar:"البلد",bn:"আল-বালাদ",v:20,t:"মক্কী"},{n:91,ar:"الشمس",bn:"আশ-শামস",v:15,t:"মক্কী"},{n:92,ar:"الليل",bn:"আল-লাইল",v:21,t:"মক্কী"},{n:93,ar:"الضحى",bn:"আদ-দুহা",v:11,t:"মক্কী"},{n:94,ar:"الشرح",bn:"আশ-শারহ",v:8,t:"মক্কী"},{n:95,ar:"التين",bn:"আত-তীন",v:8,t:"মক্কী"},{n:96,ar:"العلق",bn:"আল-আলাক",v:19,t:"মক্কী"},{n:97,ar:"القدر",bn:"আল-কাদর",v:5,t:"মক্কী"},{n:98,ar:"البينة",bn:"আল-বাইয়িনা",v:8,t:"মাদানী"},{n:99,ar:"الزلزلة",bn:"আয-যিলযাল",v:8,t:"মাদানী"},{n:100,ar:"العاديات",bn:"আল-আদিয়াত",v:11,t:"মক্কী"},{n:101,ar:"القارعة",bn:"আল-কারিআ",v:11,t:"মক্কী"},{n:102,ar:"التكاثر",bn:"আত-তাকাসুর",v:8,t:"মক্কী"},{n:103,ar:"العصر",bn:"আল-আসর",v:3,t:"মক্কী"},{n:104,ar:"الهمزة",bn:"আল-হুমাযা",v:9,t:"মক্কী"},{n:105,ar:"الفيل",bn:"আল-ফীল",v:5,t:"মক্কী"},{n:106,ar:"قريش",bn:"কুরাইশ",v:4,t:"মক্কী"},{n:107,ar:"الماعون",bn:"আল-মাউন",v:7,t:"মক্কী"},{n:108,ar:"الكوثر",bn:"আল-কাউসার",v:3,t:"মক্কী"},{n:109,ar:"الكافرون",bn:"আল-কাফিরুন",v:6,t:"মক্কী"},{n:110,ar:"النصر",bn:"আন-নাসর",v:3,t:"মাদানী"},{n:111,ar:"المسد",bn:"আল-মাসাদ",v:5,t:"মক্কী"},{n:112,ar:"الإخلاص",bn:"আল-ইখলাস",v:4,t:"মক্কী"},{n:113,ar:"الفلق",bn:"আল-ফালাক",v:5,t:"মক্কী"},{n:114,ar:"الناس",bn:"আন-নাস",v:6,t:"মক্কী"}
 ];
 
-/* ===== BUILT-IN QURAN ===== */
 const BUILTIN={
 112:{ar:[{n:1,a:"قُلْ هُوَ اللَّهُ أَحَدٌ",b:"বলুন, তিনি আল্লাহ, এক।"},{n:2,a:"اللَّهُ الصَّمَدُ",b:"আল্লাহ অমুখাপেক্ষী।"},{n:3,a:"لَمْ يَلِدْ وَلَمْ يُولَدْ",b:"তিনি জন্ম দেননি এবং জন্মগ্রহণ করেননি।"},{n:4,a:"وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",b:"এবং তাঁর সমতুল্য কেউ নেই।"}]},
 113:{ar:[{n:1,a:"قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",b:"বলুন, আমি আশ্রয় নিচ্ছি প্রভাতের রবের।"},{n:2,a:"مِن شَرِّ مَا خَلَقَ",b:"তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।"},{n:3,a:"وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",b:"এবং রাতের অন্ধকারের অনিষ্ট থেকে যখন তা ঘনিয়ে আসে।"},{n:4,a:"وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ",b:"এবং গ্রন্থিতে ফুৎকারদানকারিণীদের অনিষ্ট থেকে।"},{n:5,a:"وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",b:"এবং হিংসুকের অনিষ্ট থেকে যখন সে হিংসা করে।"}]},
@@ -419,7 +521,6 @@ const BUILTIN={
 97:{ar:[{n:1,a:"إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ",b:"নিশ্চয়ই আমি এটা লাইলাতুল কদরে নাযিল করেছি।"},{n:2,a:"وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ",b:"তুমি কি জানো লাইলাতুল কদর কী?"},{n:3,a:"لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",b:"লাইলাতুল কদর হাজার মাসের চেয়ে উত্তম।"},{n:4,a:"تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ",b:"সেই রাতে তাদের রবের অনুমতিক্রমে ফেরেশতারা এবং রূহ (জিবরাঈল) প্রতিটি কাজে নাযিল হন।"},{n:5,a:"سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ",b:"এটি শান্তিময় ফজরের উদয় পর্যন্ত।"}]},
 };
 
-/* ===== COMPREHENSIVE DUA DATA ===== */
 const BUILTIN_DUAS=[
 {id:1,dua_name_bn:"ঈমানের পর ক্ষমা চাওয়ার দোয়া",top_bn:"ক্ষমার দুআ",dua_arabic:"رَبَّنَآ اٰمَنَّا فَاغْفِرْ لَنَا وَارْحَمْنَا وَاَنْتَ خَيْرُ الرّٰحِمِيْنَ",dua_pronunciation:"রব্বানা আমান্না ফাগফির লানা ওয়ারহামনা ওয়া আন্তা খাইরুর রাহিমীন।",dua_translation_bn:"হে আমাদের রব! আমরা ঈমান এনেছি, সুতরাং আপনি আমাদেরকে ক্ষমা করুন এবং আমাদের প্রতি রহম করুন, আর আপনিই তো সর্বশ্রেষ্ঠ দয়ালু।",refference_bn:"সূরা আল-মুমিনূনঃ ১০৯"},
 {id:2,dua_name_bn:"হিদায়াতের জন্য দোয়া",top_bn:"হিদায়াতের দুআ",dua_arabic:"رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ الْوَهَّابُ",dua_pronunciation:"রব্বানা লা তুযিগ কুলুবানা বা'দা ইয হাদাইতানা ওয়াহাব লানা মিল্লাদুনকা রাহমাহ, ইন্নাকা আন্তাল ওয়াহ্হাব।",dua_translation_bn:"হে আমাদের রব! সরল পথ দেখানোর পর আপনি আমাদের অন্তরকে বাঁকা করে দিয়েন না এবং আপনার নিকট থেকে আমাদেরকে রহমত দান করুন। নিশ্চয়ই আপনি মহাদাতা।",refference_bn:"সূরা আলে-ইমরানঃ ৮"},
@@ -439,101 +540,36 @@ const BUILTIN_DUAS=[
 {id:16,dua_name_bn:"শয়তান থেকে আশ্রয়ের দোয়া",top_bn:"শয়তান থেকে আশ্রয়",dua_arabic:"أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",dua_pronunciation:"আ'উযু বিল্লাহি মিনাশ শাইত্বানির রাজীম।",dua_translation_bn:"আমি বিতাড়িত শয়তান থেকে আল্লাহর আশ্রয় গ্রহণ করছি।",refference_bn:"সূরা আন-নাহলঃ ৯৮"}
 ];
 
-/* ===== FIXED HADITH DATA — Arabic + Bengali Translation ===== */
 const BUILTIN_HADITHS=[
-{id:1,bookName:"সহীহ বুখারী",
-arabic:"إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
-bnTranslit:"ইন্নামাল আ'মালু বিন্নিয়্যাত, ওয়া ইন্নামা লিকুল্লিমরিইম মা নাওয়া।",
-bnText:"নিশ্চয়ই আমলসমূহ নিয়তের উপর নির্ভরশীল এবং প্রত্যেক ব্যক্তির জন্য তাই রয়েছে যা সে নিয়ত করেছে। যে ব্যক্তি আল্লাহ ও তাঁর রাসূলের উদ্দেশ্যে হিজরত করেছে, তার হিজরত আল্লাহ ও তাঁর রাসূলের জন্যই। আর যে দুনিয়া লাভের বা কোনো নারীকে বিবাহ করার উদ্দেশ্যে হিজরত করেছে, তার হিজরত সেটার জন্যই যার উদ্দেশ্যে সে হিজরত করেছে।",
-rawee:"উমর ইবনুল খাত্তাব (রাঃ)",refno:"হাদিস নং ১"},
-{id:2,bookName:"সহীহ বুখারী",
-arabic:"الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
-bnTranslit:"আলমুসলিমু মান সালিমাল মুসলিমুনা মিন লিসানিহি ওয়া ইয়াদিহি।",
-bnText:"প্রকৃত মুসলিম সে, যার জিহ্বা ও হাতের অনিষ্ট থেকে অন্য মুসলিমরা নিরাপদ থাকে।",
-rawee:"আব্দুল্লাহ ইবনে আমর (রাঃ)",refno:"হাদিস নং ১০"},
-{id:3,bookName:"সহীহ বুখারী",
-arabic:"لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
-bnTranslit:"লা ইউমিনু আহাদুকুম হাত্তা ইউহিব্বা লি আখীহি মা ইউহিব্বু লিনাফসিহি।",
-bnText:"তোমাদের কেউ ততক্ষণ পর্যন্ত পূর্ণ মুমিন হতে পারবে না, যতক্ষণ না সে তার ভাইয়ের জন্য সেটাই পছন্দ করে যা সে নিজের জন্য পছন্দ করে।",
-rawee:"আনাস ইবনে মালিক (রাঃ)",refno:"হাদিস নং ১৩"},
-{id:4,bookName:"সহীহ বুখারী",
-arabic:"الصِّيَامُ جُنَّةٌ فَلَا يَرْفُثْ وَلَا يَجْهَلْ",
-bnTranslit:"আস-সিয়ামু জুন্নাহ, ফালা ইয়ারফুস ওয়ালা ইয়াজহাল।",
-bnText:"রোজা ঢালস্বরূপ। সুতরাং (রোজাদার) কোনো অশ্লীল কথা বলবে না এবং মূর্খতার আচরণ করবে না। যদি কেউ তার সাথে ঝগড়া করতে আসে বা গালি দেয়, তাহলে সে বলবে, 'আমি রোজাদার।'",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ১৮৯৪"},
-{id:5,bookName:"সহীহ মুসলিম",
-arabic:"الطَّهُورُ شَطْرُ الإِيمَانِ",
-bnTranslit:"আত-তাহুরু শাত্রুল ঈমান।",
-bnText:"পবিত্রতা ঈমানের অর্ধেক। 'আলহামদুলিল্লাহ' মিযানকে পরিপূর্ণ করে। 'সুবহানাল্লাহ' এবং 'আলহামদুলিল্লাহ' আসমান ও যমীনের মধ্যবর্তী স্থান পূর্ণ করে দেয়। সালাত হলো নূর। সদকা হলো প্রমাণ। ধৈর্য হলো আলো। কুরআন তোমার পক্ষে বা বিপক্ষে দলিল।",
-rawee:"আবু মালিক আশ'আরী (রাঃ)",refno:"হাদিস নং ২২৩"},
-{id:6,bookName:"সহীহ মুসলিম",
-arabic:"مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ",
-bnTranslit:"মান সালাকা তরীকান ইয়ালতামিসু ফীহি ইলমান, সাহহালাল্লাহু লাহু তরীকান ইলাল জান্নাহ।",
-bnText:"যে ব্যক্তি জ্ঞান অর্জনের পথে চলে, আল্লাহ তার জন্য জান্নাতের পথ সহজ করে দেন।",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৬৯৯"},
-{id:7,bookName:"সহীহ বুখারী",
-arabic:"أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ",
-bnTranslit:"আহাব্বুল আ'মালি ইলাল্লাহি আদওয়ামুহা ওয়া ইন কাল্লা।",
-bnText:"আল্লাহর কাছে সবচেয়ে প্রিয় আমল হলো যা নিয়মিতভাবে করা হয়, যদিও তা পরিমাণে কম হোক।",
-rawee:"আয়েশা (রাঃ)",refno:"হাদিস নং ৬৪৬৫"},
-{id:8,bookName:"সহীহ মুসলিম",
-arabic:"لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",
-bnTranslit:"লাইসাশ শাদীদু বিস-সুর'আহ, ইন্নামাশ শাদীদুল্লাযি ইয়ামলিকু নাফসাহু 'ইন্দাল গদব।",
-bnText:"প্রকৃত বীর সে নয় যে কুস্তিতে জয়ী হয়, বরং প্রকৃত বীর সে যে রাগের সময় নিজেকে নিয়ন্ত্রণ করতে পারে।",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৬০৯"},
-{id:9,bookName:"সহীহ বুখারী",
-arabic:"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",
-bnTranslit:"খাইরুকুম মান তা'আল্লামাল কুরআনা ওয়া 'আল্লামাহ।",
-bnText:"তোমাদের মধ্যে সর্বোত্তম সে, যে কুরআন শেখে এবং অপরকে শেখায়।",
-rawee:"উসমান ইবনে আফফান (রাঃ)",refno:"হাদিস নং ৫০২৭"},
-{id:10,bookName:"সহীহ মুসলিম",
-arabic:"إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ",
-bnTranslit:"ইন্নাল্লাহা লা ইয়ানযুরু ইলা সুওয়ারিকুম ওয়া আমওয়ালিকুম, ওয়ালাকিন ইয়ানযুরু ইলা কুলুবিকুম ওয়া আ'মালিকুম।",
-bnText:"আল্লাহ তোমাদের চেহারা এবং সম্পদের দিকে নজর দেন না; বরং তিনি তোমাদের অন্তর ও আমলের দিকে নজর দেন।",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৫৬৪"},
-{id:11,bookName:"সহীহ বুখারী",
-arabic:"مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
-bnTranslit:"মান কানা ইউমিনু বিল্লাহি ওয়াল ইয়াওমিল আখির, ফালইয়াকুল খাইরান আও লিইয়াসমুত।",
-bnText:"যে ব্যক্তি আল্লাহ ও পরকালে বিশ্বাস রাখে, সে ভালো কথা বলুক অথবা চুপ থাকুক।",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ৬১৩৬"},
-{id:12,bookName:"সহীহ মুসলিম",
-arabic:"كُلُّ مَعْرُوفٍ صَدَقَةٌ",
-bnTranslit:"কুল্লু মা'রুফিন সাদাকাহ।",
-bnText:"প্রতিটি ভালো কাজই সদকা। তোমার ভাইয়ের প্রতি হাসিমুখে তাকানোও একটি সদকা।",
-rawee:"জাবির ইবনে আব্দুল্লাহ (রাঃ)",refno:"হাদিস নং ১০০৫"},
-{id:13,bookName:"সহীহ বুখারী",
-arabic:"اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا",
-bnTranslit:"ইত্তাকিল্লাহা হাইসুমা কুন্তা, ওয়া আতবি'ইস সাইয়িআতাল হাসানাতা তামহাহা।",
-bnText:"তুমি যেখানেই থাকো, আল্লাহকে ভয় করো। মন্দ কাজের পর ভালো কাজ করো, তা মন্দকে মুছে দেবে। এবং মানুষের সাথে সুন্দর আচরণ করো।",
-rawee:"আবু যার গিফারী ও মুয়াজ ইবনে জাবাল (রাঃ)",refno:"জামে তিরমিজিঃ ১৯৮৭"},
-{id:14,bookName:"সহীহ মুসলিম",
-arabic:"الدُّعَاءُ هُوَ الْعِبَادَةُ",
-bnTranslit:"আদ-দু'আউ হুওয়াল ইবাদাহ।",
-bnText:"দোয়াই হলো ইবাদত। এরপর তিনি তিলাওয়াত করলেন: 'তোমাদের রব বলেছেন, তোমরা আমাকে ডাকো, আমি তোমাদের ডাকে সাড়া দেব।'",
-rawee:"নু'মান ইবনে বাশীর (রাঃ)",refno:"হাদিস নং ৩৩৭২"},
-{id:15,bookName:"সহীহ বুখারী",
-arabic:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ",
-bnTranslit:"সুবহানাল্লাহি ওয়া বিহামদিহি, সুবহানাল্লাহিল আযীম।",
-bnText:"দুটি বাক্য আছে যা কথায় হালকা, মিযানে ভারী এবং রহমানের কাছে অতি প্রিয়: 'সুবহানাল্লাহি ওয়া বিহামদিহি, সুবহানাল্লাহিল আযীম' — আল্লাহ পবিত্র ও তাঁর সপ্রশংস, মহান আল্লাহ পবিত্র।",
-rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ৬৪০৬"}
+{id:1,bookName:"সহীহ বুখারী",arabic:"إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",bnTranslit:"ইন্নামাল আ'মালু বিন্নিয়্যাত, ওয়া ইন্নামা লিকুল্লিমরিইম মা নাওয়া।",bnText:"নিশ্চয়ই আমলসমূহ নিয়তের উপর নির্ভরশীল এবং প্রত্যেক ব্যক্তির জন্য তাই রয়েছে যা সে নিয়ত করেছে।",rawee:"উমর ইবনুল খাত্তাব (রাঃ)",refno:"হাদিস নং ১"},
+{id:2,bookName:"সহীহ বুখারী",arabic:"الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",bnTranslit:"আলমুসলিমু মান সালিমাল মুসলিমুনা মিন লিসানিহি ওয়া ইয়াদিহি।",bnText:"প্রকৃত মুসলিম সে, যার জিহ্বা ও হাতের অনিষ্ট থেকে অন্য মুসলিমরা নিরাপদ থাকে।",rawee:"আব্দুল্লাহ ইবনে আমর (রাঃ)",refno:"হাদিস নং ১০"},
+{id:3,bookName:"সহীহ বুখারী",arabic:"لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",bnTranslit:"লা ইউমিনু আহাদুকুম হাত্তা ইউহিব্বা লি আখীহি মা ইউহিব্বু লিনাফসিহি।",bnText:"তোমাদের কেউ ততক্ষণ পর্যন্ত পূর্ণ মুমিন হতে পারবে না, যতক্ষণ না সে তার ভাইয়ের জন্য সেটাই পছন্দ করে যা সে নিজের জন্য পছন্দ করে।",rawee:"আনাস ইবনে মালিক (রাঃ)",refno:"হাদিস নং ১৩"},
+{id:4,bookName:"সহীহ বুখারী",arabic:"الصِّيَامُ جُنَّةٌ فَلَا يَرْفُثْ وَلَا يَجْهَلْ",bnTranslit:"আস-সিয়ামু জুন্নাহ, ফালা ইয়ারফুস ওয়ালা ইয়াজহাল।",bnText:"রোজা ঢালস্বরূপ। সুতরাং রোজাদার কোনো অশ্লীল কথা বলবে না এবং মূর্খতার আচরণ করবে না।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ১৮৯৪"},
+{id:5,bookName:"সহীহ মুসলিম",arabic:"الطَّهُورُ شَطْرُ الإِيمَانِ",bnTranslit:"আত-তাহুরু শাত্রুল ঈমান।",bnText:"পবিত্রতা ঈমানের অর্ধেক। সালাত হলো নূর। সদকা হলো প্রমাণ। ধৈর্য হলো আলো।",rawee:"আবু মালিক আশ'আরী (রাঃ)",refno:"হাদিস নং ২২৩"},
+{id:6,bookName:"সহীহ মুসলিম",arabic:"مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ",bnTranslit:"মান সালাকা তরীকান ইয়ালতামিসু ফীহি ইলমান, সাহহালাল্লাহু লাহু তরীকান ইলাল জান্নাহ।",bnText:"যে ব্যক্তি জ্ঞান অর্জনের পথে চলে, আল্লাহ তার জন্য জান্নাতের পথ সহজ করে দেন।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৬৯৯"},
+{id:7,bookName:"সহীহ বুখারী",arabic:"أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ",bnTranslit:"আহাব্বুল আ'মালি ইলাল্লাহি আদওয়ামুহা ওয়া ইন কাল্লা।",bnText:"আল্লাহর কাছে সবচেয়ে প্রিয় আমল হলো যা নিয়মিতভাবে করা হয়, যদিও তা পরিমাণে কম হোক।",rawee:"আয়েশা (রাঃ)",refno:"হাদিস নং ৬৪৬৫"},
+{id:8,bookName:"সহীহ মুসলিম",arabic:"لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",bnTranslit:"লাইসাশ শাদীদু বিস-সুর'আহ, ইন্নামাশ শাদীদুল্লাযি ইয়ামলিকু নাফসাহু 'ইন্দাল গদব।",bnText:"প্রকৃত বীর সে নয় যে কুস্তিতে জয়ী হয়, বরং প্রকৃত বীর সে যে রাগের সময় নিজেকে নিয়ন্ত্রণ করতে পারে।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৬০৯"},
+{id:9,bookName:"সহীহ বুখারী",arabic:"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",bnTranslit:"খাইরুকুম মান তা'আল্লামাল কুরআনা ওয়া 'আল্লামাহ।",bnText:"তোমাদের মধ্যে সর্বোত্তম সে, যে কুরআন শেখে এবং অপরকে শেখায়।",rawee:"উসমান ইবনে আফফান (রাঃ)",refno:"হাদিস নং ৫০২৭"},
+{id:10,bookName:"সহীহ মুসলিম",arabic:"إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ",bnTranslit:"ইন্নাল্লাহা লা ইয়ানযুরু ইলা সুওয়ারিকুম ওয়া আমওয়ালিকুম।",bnText:"আল্লাহ তোমাদের চেহারা এবং সম্পদের দিকে নজর দেন না; বরং তিনি তোমাদের অন্তর ও আমলের দিকে নজর দেন।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ২৫৬৪"},
+{id:11,bookName:"সহীহ বুখারী",arabic:"مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",bnTranslit:"মান কানা ইউমিনু বিল্লাহি ওয়াল ইয়াওমিল আখির, ফালইয়াকুল খাইরান আও লিইয়াসমুত।",bnText:"যে ব্যক্তি আল্লাহ ও পরকালে বিশ্বাস রাখে, সে ভালো কথা বলুক অথবা চুপ থাকুক।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ৬১৩৬"},
+{id:12,bookName:"সহীহ মুসলিম",arabic:"كُلُّ مَعْرُوفٍ صَدَقَةٌ",bnTranslit:"কুল্লু মা'রুফিন সাদাকাহ।",bnText:"প্রতিটি ভালো কাজই সদকা। তোমার ভাইয়ের প্রতি হাসিমুখে তাকানোও একটি সদকা।",rawee:"জাবির ইবনে আব্দুল্লাহ (রাঃ)",refno:"হাদিস নং ১০০৫"},
+{id:13,bookName:"সহীহ বুখারী",arabic:"اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا",bnTranslit:"ইত্তাকিল্লাহা হাইসুমা কুন্তা, ওয়া আতবি'ইস সাইয়িআতাল হাসানাতা তামহাহা।",bnText:"তুমি যেখানেই থাকো, আল্লাহকে ভয় করো। মন্দ কাজের পর ভালো কাজ করো, তা মন্দকে মুছে দেবে।",rawee:"আবু যার গিফারী (রাঃ)",refno:"জামে তিরমিজিঃ ১৯৮৭"},
+{id:14,bookName:"সহীহ মুসলিম",arabic:"الدُّعَاءُ هُوَ الْعِبَادَةُ",bnTranslit:"আদ-দু'আউ হুওয়াল ইবাদাহ।",bnText:"দোয়াই হলো ইবাদত। তোমাদের রব বলেছেন: তোমরা আমাকে ডাকো, আমি তোমাদের ডাকে সাড়া দেব।",rawee:"নু'মান ইবনে বাশীর (রাঃ)",refno:"হাদিস নং ৩৩৭২"},
+{id:15,bookName:"সহীহ বুখারী",arabic:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ",bnTranslit:"সুবহানাল্লাহি ওয়া বিহামদিহি, সুবহানাল্লাহিল আযীম।",bnText:"দুটি বাক্য আছে যা কথায় হালকা, মিযানে ভারী এবং রহমানের কাছে অতি প্রিয়: সুবহানাল্লাহি ওয়া বিহামদিহি, সুবহানাল্লাহিল আযীম।",rawee:"আবু হুরায়রা (রাঃ)",refno:"হাদিস নং ৬৪০৬"}
 ];
 
-/* ===== LAYLATUL QADR ===== */
 const KADR_DUAS=[
-{id:1,dua_name_bn:"শবে কদরের সবচেয়ে গুরুত্বপূর্ণ দুআ",dua_arabic:"اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",dua_pronunciation:"আল্লাহুম্মা ইন্নাকা আফুওয়ুন কারীম, তুহিব্বুল আফওয়া ফা'ফু আন্নি।",dua_translation_bn:"হে আল্লাহ! নিশ্চয়ই তুমি ক্ষমাশীল, মহাদয়ালু। তুমি ক্ষমা করতে ভালোবাসো, তাহলে আমাকেও ক্ষমা করো।",refference_bn:"জামে তিরমিজি, ইবনে মাজাহ — সহীহ হাদিস"},
-{id:2,dua_name_bn:"কদর রজনীতে সূরা আল-কাদর",dua_arabic:"إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ ۝ وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ ۝ لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",dua_pronunciation:"ইন্না আনযালনাহু ফি লাইলাতিল কাদর। ওয়া মা আদরাকা মা লাইলাতুল কাদর। লাইলাতুল কাদরি খাইরুম মিন আলফি শাহর।",dua_translation_bn:"নিশ্চয়ই আমি এটা লাইলাতুল কদরে নাযিল করেছি। তুমি কি জানো লাইলাতুল কদর কী? লাইলাতুল কদর হাজার মাসের চেয়ে উত্তম।",refference_bn:"সূরা আল-কাদর: ১-৩"},
+{id:1,dua_name_bn:"শবে কদরের সবচেয়ে গুরুত্বপূর্ণ দুআ",dua_arabic:"اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",dua_pronunciation:"আল্লাহুম্মা ইন্নাকা আফুওয়ুন কারীম, তুহিব্বুল আফওয়া ফা'ফু আন্নি।",dua_translation_bn:"হে আল্লাহ! নিশ্চয়ই তুমি ক্ষমাশীল, মহাদয়ালু। তুমি ক্ষমা করতে ভালোবাসো, তাহলে আমাকেও ক্ষমা করো।",refference_bn:"জামে তিরমিজি, ইবনে মাজাহ"},
+{id:2,dua_name_bn:"কদর রজনীতে সূরা আল-কাদর",dua_arabic:"لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",dua_pronunciation:"লাইলাতুল কাদরি খাইরুম মিন আলফি শাহর।",dua_translation_bn:"লাইলাতুল কদর হাজার মাসের চেয়ে উত্তম।",refference_bn:"সূরা আল-কাদর: ৩"},
 {id:3,dua_name_bn:"হিদায়াতের দুআ",dua_arabic:"رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",dua_pronunciation:"রব্বানা লা তুযিগ কুলুবানা বা'দা ইয হাদাইতানা।",dua_translation_bn:"হে আমাদের রব! হিদায়াত দেওয়ার পর আমাদের অন্তরকে বাঁকা করে দিও না।",refference_bn:"সূরা আলে-ইমরানঃ ৮"},
 {id:4,dua_name_bn:"আল্লাহর প্রশংসার তাসবিহ",dua_arabic:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ",dua_pronunciation:"সুবহানাল্লাহি ওয়া বিহামদিহি, সুবহানাল্লাহিল আযীম।",dua_translation_bn:"আল্লাহ পবিত্র ও তাঁর সপ্রশংস, মহান আল্লাহ পবিত্র।",refference_bn:"সহীহ বুখারী"},
-{id:5,dua_name_bn:"জান্নাত প্রার্থনার দুআ",dua_arabic:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",dua_pronunciation:"রব্বানা আতিনা ফিদ-দুনইয়া হাসানাহ ওয়া ফিল আখিরাতি হাসানাহ ওয়াকিনা আযাবান নার।",dua_translation_bn:"হে আমাদের রব! আমাদের দুনিয়া ও আখিরাতে কল্যাণ দান করুন এবং আগুনের আযাব থেকে রক্ষা করুন।",refference_bn:"সূরা আল-বাকারাঃ ২০১"},
-{id:6,dua_name_bn:"উম্মতের জন্য ইবরাহীম (আ.)-এর দুআ",dua_arabic:"رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِن ذُرِّيَّتِنَا أُمَّةً مُّسْلِمَةً لَّكَ",dua_pronunciation:"রব্বানা ওয়াজ'আলনা মুসলিমাইনি লাকা ওয়া মিন যুর্রিয়্যাতিনা উম্মাতান মুসলিমাতান লাক।",dua_translation_bn:"হে আমাদের রব! আমাদেরকে তোমার আজ্ঞাবহ করো এবং আমাদের বংশধরদের মধ্যে তোমার আজ্ঞাবহ উম্মত রাখো।",refference_bn:"সূরা আল-বাকারাঃ ১২৮"}
+{id:5,dua_name_bn:"জান্নাত প্রার্থনার দুআ",dua_arabic:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",dua_pronunciation:"রব্বানা আতিনা ফিদ-দুনইয়া হাসানাহ ওয়া ফিল আখিরাতি হাসানাহ ওয়াকিনা আযাবান নার।",dua_translation_bn:"হে আমাদের রব! আমাদের দুনিয়া ও আখিরাতে কল্যাণ দান করুন এবং আগুনের আযাব থেকে রক্ষা করুন।",refference_bn:"সূরা আল-বাকারাঃ ২০১"}
 ];
 
-/* ===== 99 NAMES ===== */
 const NAMES=[
 {n:1,ar:"الرَّحْمَنُ",tr:"Ar-Rahman",bn:"পরম দয়ালু",mn:"যিনি সকলের প্রতি দয়া করেন"},{n:2,ar:"الرَّحِيمُ",tr:"Ar-Raheem",bn:"অতিশয় দয়ালু",mn:"মুমিনদের প্রতি বিশেষ দয়া"},{n:3,ar:"الْمَلِكُ",tr:"Al-Malik",bn:"রাজাধিরাজ",mn:"সার্বভৌম ক্ষমতার অধিকারী"},{n:4,ar:"الْقُدُّوسُ",tr:"Al-Quddus",bn:"পবিত্রতম",mn:"সকল ত্রুটি থেকে মুক্ত"},{n:5,ar:"السَّلَامُ",tr:"As-Salam",bn:"শান্তিদাতা",mn:"যার থেকে শান্তি আসে"},{n:6,ar:"الْمُؤْمِنُ",tr:"Al-Mu'min",bn:"নিরাপত্তাদানকারী",mn:"বিশ্বাসীদের রক্ষাকারী"},{n:7,ar:"الْمُهَيْمِنُ",tr:"Al-Muhaymin",bn:"রক্ষাকারী",mn:"সবকিছু পর্যবেক্ষণকারী"},{n:8,ar:"الْعَزِيزُ",tr:"Al-Aziz",bn:"মহাপরাক্রমশালী",mn:"যিনি অপরাজেয়"},{n:9,ar:"الْجَبَّارُ",tr:"Al-Jabbar",bn:"মহাশক্তিশালী",mn:"ভগ্নহৃদয় জোড়া লাগান"},{n:10,ar:"الْمُتَكَبِّرُ",tr:"Al-Mutakabbir",bn:"শ্রেষ্ঠত্বের অধিকারী",mn:"মহত্ত্ব সর্বোচ্চ"},{n:11,ar:"الْخَالِقُ",tr:"Al-Khaliq",bn:"স্রষ্টা",mn:"সবকিছু সৃষ্টিকারী"},{n:12,ar:"الْبَارِئُ",tr:"Al-Bari",bn:"উদ্ভাবক",mn:"অস্তিত্বহীন থেকে সৃষ্টি"},{n:13,ar:"الْمُصَوِّرُ",tr:"Al-Musawwir",bn:"আকৃতিদাতা",mn:"সব জিনিসে রূপদানকারী"},{n:14,ar:"الْغَفَّارُ",tr:"Al-Ghaffar",bn:"বারবার ক্ষমাকারী",mn:"বারবার ক্ষমা করেন"},{n:15,ar:"الْقَهَّارُ",tr:"Al-Qahhar",bn:"সর্বজয়ী",mn:"সবের উপর বিজয়ী"},{n:16,ar:"الْوَهَّابُ",tr:"Al-Wahhab",bn:"মহাদাতা",mn:"বিনামূল্যে দান করেন"},{n:17,ar:"الرَّزَّاقُ",tr:"Ar-Razzaq",bn:"রিজিকদাতা",mn:"সবার রিজিকের ব্যবস্থাকারী"},{n:18,ar:"الْفَتَّاحُ",tr:"Al-Fattah",bn:"সমস্যা উন্মোচনকারী",mn:"সব দরজা খুলে দেন"},{n:19,ar:"الْعَلِيمُ",tr:"Al-Alim",bn:"সর্বজ্ঞ",mn:"সবকিছু জানেন"},{n:20,ar:"الْقَابِضُ",tr:"Al-Qabid",bn:"সংকোচনকারী",mn:"গ্রহণ করেন"},{n:21,ar:"الْبَاسِطُ",tr:"Al-Basit",bn:"সম্প্রসারণকারী",mn:"প্রসারিত করেন"},{n:22,ar:"الْخَافِضُ",tr:"Al-Khafid",bn:"অবনমনকারী",mn:"যিনি নামিয়ে দেন"},{n:23,ar:"الرَّافِعُ",tr:"Ar-Rafi",bn:"উন্নয়নকারী",mn:"যিনি উঁচু করেন"},{n:24,ar:"الْمُعِزُّ",tr:"Al-Mu'izz",bn:"সম্মানদাতা",mn:"সম্মান দেন"},{n:25,ar:"الْمُذِلُّ",tr:"Al-Mudhill",bn:"অবমানকারী",mn:"অবমানিত করেন"},{n:26,ar:"السَّمِيعُ",tr:"As-Sami",bn:"সর্বশ্রোতা",mn:"সবকিছু শোনেন"},{n:27,ar:"الْبَصِيرُ",tr:"Al-Basir",bn:"সর্বদ্রষ্টা",mn:"সবকিছু দেখেন"},{n:28,ar:"الْحَكَمُ",tr:"Al-Hakam",bn:"বিচারক",mn:"চূড়ান্ত বিচারক"},{n:29,ar:"الْعَدْلُ",tr:"Al-Adl",bn:"পরম ন্যায়পরায়ণ",mn:"সম্পূর্ণ ন্যায়বিচার"},{n:30,ar:"اللَّطِيفُ",tr:"Al-Latif",bn:"অতি সূক্ষ্মদর্শী",mn:"সূক্ষ্ম বিষয়ও জানেন"},{n:31,ar:"الْخَبِيرُ",tr:"Al-Khabir",bn:"সম্পূর্ণ অবহিত",mn:"সবকিছু সম্পর্কে অবগত"},{n:32,ar:"الْحَلِيمُ",tr:"Al-Halim",bn:"অতি সহনশীল",mn:"অত্যন্ত ধৈর্যশীল"},{n:33,ar:"الْعَظِيمُ",tr:"Al-Azim",bn:"মহামহিম",mn:"অসীম মহত্ত্বের অধিকারী"},{n:34,ar:"الْغَفُورُ",tr:"Al-Ghafur",bn:"ক্ষমাশীল",mn:"সম্পূর্ণভাবে ক্ষমাকারী"},{n:35,ar:"الشَّكُورُ",tr:"Ash-Shakur",bn:"কৃতজ্ঞতা স্বীকারকারী",mn:"ক্ষুদ্র কাজে বিশাল পুরস্কার"},{n:36,ar:"الْعَلِيُّ",tr:"Al-Ali",bn:"সর্বোচ্চ",mn:"সবার উপরে"},{n:37,ar:"الْكَبِيرُ",tr:"Al-Kabir",bn:"মহাশ্রেষ্ঠ",mn:"সকলের চেয়ে বড়"},{n:38,ar:"الْحَفِيظُ",tr:"Al-Hafiz",bn:"সংরক্ষণকারী",mn:"সবকিছু রক্ষা করেন"},{n:39,ar:"الْمُقِيتُ",tr:"Al-Muqit",bn:"পোষণকারী",mn:"সবার পোষণদাতা"},{n:40,ar:"الْحَسِيبُ",tr:"Al-Hasib",bn:"হিসাব গ্রহণকারী",mn:"সকলের হিসাব রাখেন"},{n:41,ar:"الْجَلِيلُ",tr:"Al-Jalil",bn:"মহাগৌরবশালী",mn:"শ্রেষ্ঠত্বের অধিকারী"},{n:42,ar:"الْكَرِيمُ",tr:"Al-Karim",bn:"মহাউদার",mn:"অসীম উদারতার অধিকারী"},{n:43,ar:"الرَّقِيبُ",tr:"Ar-Raqib",bn:"সতর্ক পর্যবেক্ষক",mn:"সবার উপর সজাগ নজর"},{n:44,ar:"الْمُجِيبُ",tr:"Al-Mujib",bn:"সাড়াদানকারী",mn:"দোয়া কবুল করেন"},{n:45,ar:"الْوَاسِعُ",tr:"Al-Wasi",bn:"সর্বব্যাপী",mn:"জ্ঞান ও দয়া সর্বত্র"},{n:46,ar:"الْحَكِيمُ",tr:"Al-Hakim",bn:"পরম প্রজ্ঞাময়",mn:"সব সিদ্ধান্তে প্রজ্ঞাবান"},{n:47,ar:"الْوَدُودُ",tr:"Al-Wadud",bn:"স্নেহশীল",mn:"মুমিনদের ভালোবাসেন"},{n:48,ar:"الْمَجِيدُ",tr:"Al-Majid",bn:"মহাগৌরবময়",mn:"গৌরব ও মর্যাদার অধিকারী"},{n:49,ar:"الْبَاعِثُ",tr:"Al-Ba'ith",bn:"পুনরুত্থানকারী",mn:"মৃতদের পুনর্জীবিত করবেন"},{n:50,ar:"الشَّهِيدُ",tr:"Ash-Shahid",bn:"সর্বসাক্ষী",mn:"সর্বত্র উপস্থিত সাক্ষী"},{n:51,ar:"الْحَقُّ",tr:"Al-Haqq",bn:"চিরসত্য",mn:"অস্তিত্ব সত্য ও অবিনশ্বর"},{n:52,ar:"الْوَكِيلُ",tr:"Al-Wakil",bn:"উত্তম কর্মবিধায়ক",mn:"যার উপর নির্ভর করা যায়"},{n:53,ar:"الْقَوِيُّ",tr:"Al-Qawi",bn:"মহাশক্তিমান",mn:"শক্তি অসীম"},{n:54,ar:"الْمَتِينُ",tr:"Al-Matin",bn:"সুদৃঢ়",mn:"শক্তি অটুট"},{n:55,ar:"الْوَلِيُّ",tr:"Al-Wali",bn:"অভিভাবক",mn:"মুমিনদের বন্ধু ও রক্ষাকর্তা"},{n:56,ar:"الْحَمِيدُ",tr:"Al-Hamid",bn:"প্রশংসিত",mn:"সর্বদা প্রশংসার যোগ্য"},{n:57,ar:"الْمُحْصِي",tr:"Al-Muhsi",bn:"গণনাকারী",mn:"সবকিছু গণনা করেন"},{n:58,ar:"الْمُبْدِئُ",tr:"Al-Mubdi",bn:"আদি সৃষ্টিকর্তা",mn:"প্রথমবার সৃষ্টিকারী"},{n:59,ar:"الْمُعِيدُ",tr:"Al-Muid",bn:"পুনঃসৃষ্টিকারী",mn:"মৃত্যুর পর পুনঃসৃষ্টি"},{n:60,ar:"الْمُحْيِي",tr:"Al-Muhyi",bn:"জীবনদাতা",mn:"জীবন দান করেন"},{n:61,ar:"الْمُمِيتُ",tr:"Al-Mumit",bn:"মৃত্যুদাতা",mn:"মৃত্যু ঘটান"},{n:62,ar:"الْحَيُّ",tr:"Al-Hayy",bn:"চিরজীবী",mn:"চিরকাল জীবিত"},{n:63,ar:"الْقَيُّومُ",tr:"Al-Qayyum",bn:"স্বনির্ভর",mn:"সব কিছু ধারণকারী"},{n:64,ar:"الْوَاجِدُ",tr:"Al-Wajid",bn:"সর্বসম্পন্ন",mn:"কোনো অভাব নেই"},{n:65,ar:"الْمَاجِدُ",tr:"Al-Majid",bn:"মহাগৌরবময়",mn:"সম্মান ও উদারতার অধিকারী"},{n:66,ar:"الْوَاحِدُ",tr:"Al-Wahid",bn:"একক",mn:"এক ও অদ্বিতীয়"},{n:67,ar:"الصَّمَدُ",tr:"As-Samad",bn:"অমুখাপেক্ষী",mn:"সবাই তাঁর মুখাপেক্ষী"},{n:68,ar:"الْقَادِرُ",tr:"Al-Qadir",bn:"সর্বশক্তিমান",mn:"সবকিছু করতে সক্ষম"},{n:69,ar:"الْمُقْتَدِرُ",tr:"Al-Muqtadir",bn:"পরাক্রমশালী",mn:"ক্ষমতা সর্বোচ্চ"},{n:70,ar:"الْمُقَدِّمُ",tr:"Al-Muqaddim",bn:"অগ্রগামী",mn:"যা ইচ্ছা সামনে আনেন"},{n:71,ar:"الْمُؤَخِّرُ",tr:"Al-Muakhkhir",bn:"পশ্চাৎকারী",mn:"যা ইচ্ছা পিছিয়ে দেন"},{n:72,ar:"الْأَوَّلُ",tr:"Al-Awwal",bn:"সর্বপ্রথম",mn:"যার আগে কিছু নেই"},{n:73,ar:"الْآخِرُ",tr:"Al-Akhir",bn:"সর্বশেষ",mn:"যার পরে কিছু নেই"},{n:74,ar:"الظَّاهِرُ",tr:"Az-Zahir",bn:"প্রকাশ্য",mn:"নিদর্শনে স্পষ্ট"},{n:75,ar:"الْبَاطِنُ",tr:"Al-Batin",bn:"গুপ্ত",mn:"সকলের অন্তরে আছেন"},{n:76,ar:"الْوَالِي",tr:"Al-Wali",bn:"শাসনকর্তা",mn:"সমগ্র সৃষ্টির শাসক"},{n:77,ar:"الْمُتَعَالِي",tr:"Al-Muta'ali",bn:"সর্বোচ্চ মহান",mn:"সবার উপরে মহান"},{n:78,ar:"الْبَرُّ",tr:"Al-Barr",bn:"পরম দয়ালু",mn:"অসীম দয়া ও উপকারকারী"},{n:79,ar:"التَّوَّابُ",tr:"At-Tawwab",bn:"তাওবা কবুলকারী",mn:"বারবার তাওবা কবুল করেন"},{n:80,ar:"الْمُنْتَقِمُ",tr:"Al-Muntaqim",bn:"প্রতিশোধ গ্রহণকারী",mn:"পাপীদের শাস্তি দেন"},{n:81,ar:"الْعَفُوُّ",tr:"Al-Afuw",bn:"পাপমোচনকারী",mn:"সম্পূর্ণভাবে মাফ করেন"},{n:82,ar:"الرَّؤُوفُ",tr:"Ar-Ra'uf",bn:"অতি স্নেহশীল",mn:"কোমল ও মেহেরবান"},{n:83,ar:"مَالِكُ الْمُلْكِ",tr:"Malik-ul-Mulk",bn:"রাজত্বের মালিক",mn:"সকল ক্ষমতা তাঁর হাতে"},{n:84,ar:"ذُو الْجَلَالِ",tr:"Dhul-Jalal",bn:"গৌরব ও সম্মানিত",mn:"গৌরব ও সম্মানের অধিকারী"},{n:85,ar:"الْمُقْسِطُ",tr:"Al-Muqsit",bn:"ন্যায়বিচারক",mn:"সম্পূর্ণ ন্যায়বিচার করেন"},{n:86,ar:"الْجَامِعُ",tr:"Al-Jami",bn:"সমন্বয়কারী",mn:"সব একত্রিত করবেন"},{n:87,ar:"الْغَنِيُّ",tr:"Al-Ghani",bn:"অমুখাপেক্ষী",mn:"কারো মুখাপেক্ষী নন"},{n:88,ar:"الْمُغْنِي",tr:"Al-Mughni",bn:"সমৃদ্ধকারী",mn:"অভাব দূর করেন"},{n:89,ar:"الْمَانِعُ",tr:"Al-Mani",bn:"বিরত রাখনেওয়ালা",mn:"ক্ষতি থেকে রক্ষা করেন"},{n:90,ar:"الضَّارُّ",tr:"Ad-Darr",bn:"ক্ষতিকারক উপকরণ সৃষ্টিকারী",mn:"ক্ষতির উপকরণ সৃষ্টিকারী"},{n:91,ar:"النَّافِعُ",tr:"An-Nafi",bn:"উপকারকারী",mn:"উপকার করেন"},{n:92,ar:"النُّورُ",tr:"An-Nur",bn:"জ্যোতি",mn:"আসমান-জমিনের আলো"},{n:93,ar:"الْهَادِي",tr:"Al-Hadi",bn:"পথপ্রদর্শক",mn:"সঠিক পথ দেখান"},{n:94,ar:"الْبَدِيعُ",tr:"Al-Badi",bn:"অতুলনীয় সৃষ্টিকর্তা",mn:"অভূতপূর্ব সৃষ্টিকারী"},{n:95,ar:"الْبَاقِي",tr:"Al-Baqi",bn:"চিরস্থায়ী",mn:"চিরকাল থাকবেন"},{n:96,ar:"الْوَارِثُ",tr:"Al-Warith",bn:"উত্তরাধিকারী",mn:"সব কিছুর মালিক থাকবেন"},{n:97,ar:"الرَّشِيدُ",tr:"Ar-Rashid",bn:"পথপ্রদর্শক",mn:"সঠিক পথের নির্দেশক"},{n:98,ar:"الصَّبُورُ",tr:"As-Sabur",bn:"মহাধৈর্যশীল",mn:"তাড়াহুড়া করেন না"},{n:99,ar:"اللَّهُ",tr:"Allah",bn:"আল্লাহ",mn:"একমাত্র সত্য উপাস্য"}
 ];
 
-/* ===== PRAYER DATA ===== */
 const PRAYERS=[
 {name:"ফজর",ar:"الفجر",icon:"🌅",color:"rgba(155,109,255,.15)",rakah:"২ রাকাত ফরজ"},
 {name:"যোহর",ar:"الظهر",icon:"☀️",color:"rgba(240,192,96,.15)",rakah:"৪ রাকাত ফরজ"},
@@ -542,13 +578,12 @@ const PRAYERS=[
 {name:"এশা",ar:"العشاء",icon:"🌙",color:"rgba(0,212,200,.15)",rakah:"৪ রাকাত ফরজ"}
 ];
 
-/* ===== ZAKAT ===== */
 const ZAKAT_INFO=[
 {title:"যাকাত কী?",content:"যাকাত ইসলামের পাঁচ স্তম্ভের তৃতীয় স্তম্ভ। এটি আল্লাহর পথে বিতরণের জন্য নির্ধারিত সম্পদ। যাকাত শুধু দরিদ্রদের সাহায্য নয়, বরং এটি আমাদের আত্মার পবিত্রতা এবং আল্লাহর সন্তুষ্টি অর্জনের একটি মাধ্যম।",icon:"❓"},
-{title:"যাকাত ফরজ হওয়ার শর্ত",content:"১. মুসলিম হতে হবে\n২. বালেগ হতে হবে\n৩. সুস্থ মস্তিষ্কের অধিকারী হতে হবে\n৪. নিসাব পরিমাণ সম্পদ থাকতে হবে\n(স্বর্ণ ৭.৫ তোলা/৮৭.৪৮ গ্রাম বা রুপা ৫২.৫ তোলা/৬১২.৩৬ গ্রাম বা এর সমতুল্য নগদ)\n৫. সম্পদে পূর্ণ এক বছর অতিক্রম হতে হবে",icon:"📋"},
-{title:"যাকাতের হার",content:"যাকাতের হার হলো যাকাতযোগ্য সম্পদের ২.৫% (শতকরা আড়াই ভাগ)। প্রতি হিজরি বছরে একবার এই হিসাব দিতে হয়। মোট সম্পদ থেকে ঋণ বাদ দিয়ে অবশিষ্ট সম্পদের উপর যাকাত প্রযোজ্য।",icon:"📊"},
-{title:"যাকাত কাদের দেওয়া যায়",content:"১. ফকির (অতি দরিদ্র)\n২. মিসকিন (দরিদ্র)\n৩. যাকাত সংগ্রহকারী আমিল\n৪. নতুন মুসলিম\n৫. দাস মুক্তির জন্য\n৬. ঋণগ্রস্ত (যে নিজের ঋণ শোধ করতে পারছে না)\n৭. আল্লাহর রাস্তায় (ফি সাবিলিল্লাহ)\n৮. মুসাফির (যার পাথেয় শেষ হয়ে গেছে)",icon:"🤝"},
-{title:"যাকাতের গুরুত্ব",content:"যাকাত সম্পদকে পবিত্র করে, আল্লাহর নিয়ামত বৃদ্ধি করে, কৃপণতা দূর করে এবং সমাজে অর্থনৈতিক ভারসাম্য প্রতিষ্ঠা করে। আল্লাহ বলেছেন: 'তোমাদের সম্পদ থেকে যাকাত নাও, যাতে তা তাদের পবিত্র করে।' (সূরা তাওবাঃ ১০৩)",icon:"✨"}
+{title:"যাকাত ফরজ হওয়ার শর্ত",content:"১. মুসলিম হতে হবে\n২. বালেগ হতে হবে\n৩. সুস্থ মস্তিষ্কের অধিকারী হতে হবে\n৪. নিসাব পরিমাণ সম্পদ থাকতে হবে\n(স্বর্ণ ৭.৫ তোলা/৮৭.৪৮ গ্রাম বা রুপা ৫২.৫ তোলা/৬১২.৩৬ গ্রাম)\n৫. সম্পদে পূর্ণ এক বছর অতিক্রম হতে হবে",icon:"📋"},
+{title:"যাকাতের হার",content:"যাকাতের হার হলো যাকাতযোগ্য সম্পদের ২.৫% (শতকরা আড়াই ভাগ)। প্রতি হিজরি বছরে একবার এই হিসাব দিতে হয়।",icon:"📊"},
+{title:"যাকাত কাদের দেওয়া যায়",content:"১. ফকির (অতি দরিদ্র)\n২. মিসকিন (দরিদ্র)\n৩. যাকাত সংগ্রহকারী আমিল\n৪. নতুন মুসলিম\n৫. দাস মুক্তির জন্য\n৬. ঋণগ্রস্ত\n৭. আল্লাহর রাস্তায় (ফি সাবিলিল্লাহ)\n৮. মুসাফির (যার পাথেয় শেষ হয়ে গেছে)",icon:"🤝"},
+{title:"যাকাতের গুরুত্ব",content:"যাকাত সম্পদকে পবিত্র করে, আল্লাহর নিয়ামত বৃদ্ধি করে, কৃপণতা দূর করে এবং সমাজে অর্থনৈতিক ভারসাম্য প্রতিষ্ঠা করে।",icon:"✨"}
 ];
 
 /* ===== STATE ===== */
@@ -558,6 +593,418 @@ let cache={};
 let audioEl=document.getElementById('audio');
 let curA=null, fz=2.2, pCity='Gazipur';
 let pageHistory=['home'];
+
+/* ===== TRACKER DATA HELPERS ===== */
+function todayKey(){return new Date().toISOString().split('T')[0];}
+function getTrackerData(){return JSON.parse(localStorage.getItem('ibadatTracker')||'{}');}
+function saveTrackerData(d){localStorage.setItem('ibadatTracker',JSON.stringify(d));}
+function getTodayRecord(){
+  const d=getTrackerData();
+  const k=todayKey();
+  if(!d[k])d[k]={namaz:{fajr:false,dhuhr:false,asr:false,maghrib:false,isha:false},roza:false,quran:0,tasbih:false,quranPages:0,saved:false};
+  return{data:d,key:k,record:d[k]};
+}
+function saveTodayRecord(record){
+  const d=getTrackerData();
+  const k=todayKey();
+  d[k]=record;
+  // compute completeness
+  const nz=record.namaz;
+  const nzDone=Object.values(nz).filter(Boolean).length;
+  d[k].namazCount=nzDone;
+  d[k].complete=nzDone>=5&&record.quran>0;
+  saveTrackerData(d);
+}
+
+function calcStreak(){
+  const d=getTrackerData();
+  let streak=0;
+  const dt=new Date();
+  // check today first, then go backwards
+  for(let i=0;i<365;i++){
+    const k=dt.toISOString().split('T')[0];
+    if(d[k]&&d[k].complete){streak++;dt.setDate(dt.getDate()-1);}
+    else if(i===0){dt.setDate(dt.getDate()-1);} // if today not complete, check yesterday
+    else break;
+  }
+  return streak;
+}
+
+function getWeekData(){
+  const d=getTrackerData();
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const dt=new Date();dt.setDate(dt.getDate()-i);
+    const k=dt.toISOString().split('T')[0];
+    const rec=d[k]||{};
+    const nzDone=(rec.namaz)?Object.values(rec.namaz).filter(Boolean).length:0;
+    const score=Math.round((nzDone/5)*60+(rec.quran?20:0)+(rec.roza?10:0)+(rec.tasbih?10:0));
+    const dayNames=['রবি','সোম','মঙ্গল','বুধ','বৃহ','শুক্র','শনি'];
+    days.push({k,score,nzDone,roza:!!rec.roza,quran:!!rec.quran,tasbih:!!rec.tasbih,dayName:dayNames[dt.getDay()]});
+  }
+  return days;
+}
+
+function getMonthStats(){
+  const d=getTrackerData();
+  const now=new Date();
+  let total=0,complete=0,nzTotal=0,rozaTotal=0,quranTotal=0;
+  for(let i=0;i<30;i++){
+    const dt=new Date(now);dt.setDate(dt.getDate()-i);
+    const k=dt.toISOString().split('T')[0];
+    const rec=d[k];
+    if(rec){
+      total++;
+      if(rec.complete)complete++;
+      nzTotal+=(rec.namaz?Object.values(rec.namaz).filter(Boolean).length:0);
+      if(rec.roza)rozaTotal++;
+      if(rec.quran)quranTotal++;
+    }
+  }
+  return{total,complete,nzTotal,rozaTotal,quranTotal,streak:calcStreak()};
+}
+
+/* ===== TRACKER RENDERER ===== */
+function renderTracker(){
+  const {record}=getTodayRecord();
+  const nz=record.namaz;
+  const stats=getMonthStats();
+  const weekData=getWeekData();
+  const streak=stats.streak;
+  const nzDoneToday=Object.values(nz).filter(Boolean).length;
+  const todayScore=Math.round((nzDoneToday/5)*60+(record.quran?20:0)+(record.roza?10:0)+(record.tasbih?10:0));
+
+  const namazItems=[
+    {key:'fajr',name:'ফজর',ar:'الفجر',icon:'🌅'},
+    {key:'dhuhr',name:'যোহর',ar:'الظهر',icon:'☀️'},
+    {key:'asr',name:'আসর',ar:'العصر',icon:'🌤'},
+    {key:'maghrib',name:'মাগরিব',ar:'المغرب',icon:'🌇'},
+    {key:'isha',name:'এশা',ar:'العشاء',icon:'🌙'}
+  ];
+
+  const circumference=2*Math.PI*46;
+  const offset=circumference-(todayScore/100)*circumference;
+
+  // Week bar chart
+  const maxScore=Math.max(...weekData.map(d=>d.score),1);
+  const weekBars=weekData.map(d=>{
+    const h=Math.max(4,Math.round((d.score/maxScore)*55));
+    const isToday=d.k===todayKey();
+    const col=d.score>=80?'var(--green)':d.score>=50?'var(--gold)':d.score>0?'var(--teal)':'var(--border2)';
+    return`<div class="week-day">
+      <div class="wd-lbl">${d.dayName}</div>
+      <div class="wd-bar-wrap"><div class="wd-bar" style="height:${h}px;background:${col};${isToday?'box-shadow:0 0 8px '+col+';':''};width:${isToday?'100%':'80%'};margin:0 auto"></div></div>
+      <div class="wd-pct" style="color:${isToday?'var(--gold)':'var(--text3)'}">${d.score}%</div>
+    </div>`;
+  }).join('');
+
+  // 30-day calendar
+  const calCells=[];
+  for(let i=29;i>=0;i--){
+    const dt=new Date();dt.setDate(dt.getDate()-i);
+    const k=dt.toISOString().split('T')[0];
+    const td=getTrackerData()[k];
+    const sc=td?(Math.round(((td.namaz?Object.values(td.namaz).filter(Boolean).length:0)/5)*60+(td.quran?20:0)+(td.roza?10:0)+(td.tasbih?10:0))):0;
+    const col=sc>=80?'rgba(74,222,128,.7)':sc>=50?'rgba(240,192,96,.6)':sc>0?'rgba(0,212,200,.5)':'var(--border)';
+    const isToday=k===todayKey();
+    calCells.push(`<div class="cal-cell" style="background:${col};${isToday?'box-shadow:0 0 0 2px var(--gold);':''}" title="${k}: ${sc}%"></div>`);
+  }
+
+  let html=`
+  <div class="ph">
+    <div class="ph-ar">المتابعة</div>
+    <div class="ph-bn">ইবাদত ট্র্যাকার</div>
+    <div class="brow"><span class="badge bn">আজকের আমল</span><span class="badge bg">স্ট্রিক ও রিপোর্ট</span></div>
+  </div>
+
+  <!-- STREAK HERO -->
+  <div class="tracker-hero" style="animation:fup .4s ease both">
+    <div class="streak-display">
+      <div class="streak-main">
+        <div class="streak-fire">🔥</div>
+        <div class="streak-num">${streak}</div>
+        <div class="streak-label">দিনের স্ট্রিক</div>
+      </div>
+      <div class="streak-stats">
+        <div class="sstat">
+          <div class="sstat-num" style="color:var(--gold)">${stats.complete}</div>
+          <div class="sstat-lbl">পূর্ণ দিন<br>(৩০ দিনে)</div>
+        </div>
+        <div class="sstat">
+          <div class="sstat-num" style="color:var(--teal)">${stats.rozaTotal}</div>
+          <div class="sstat-lbl">রোজা<br>(৩০ দিনে)</div>
+        </div>
+        <div class="sstat">
+          <div class="sstat-num" style="color:var(--purple)">${stats.quranTotal}</div>
+          <div class="sstat-lbl">কুরআন<br>তেলাওয়াত</div>
+        </div>
+      </div>
+      <!-- Progress ring -->
+      <div class="ring-wrap">
+        <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
+          <circle class="ring-bg" cx="55" cy="55" r="46"/>
+          <circle class="ring-fill" cx="55" cy="55" r="46"
+            stroke="${todayScore>=80?'var(--green)':todayScore>=50?'var(--gold)':'var(--teal)'}"
+            stroke-dasharray="${circumference}"
+            stroke-dashoffset="${offset}"/>
+        </svg>
+        <div class="ring-center">
+          <div class="ring-pct">${todayScore}%</div>
+          <div class="ring-sub">আজকের<br>অগ্রগতি</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY NAMAZ -->
+  <div class="tracker-section" style="animation-delay:.05s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(240,192,96,.12)">🕌</div>
+      নামাজ ট্র্যাকার — আজ ${nzDoneToday}/৫ পড়েছেন
+      <span style="margin-left:auto;font-size:.7rem;color:var(--text3)">${new Date().toLocaleDateString('bn-BD')}</span>
+    </div>
+    <div class="namaz-grid" id="namazGrid">
+      ${namazItems.map(p=>`
+        <button class="nz-btn ${nz[p.key]?'done':''}" id="nzb-${p.key}" onclick="toggleNamaz('${p.key}')">
+          <div class="nz-check">✓</div>
+          <span class="nz-icon">${p.icon}</span>
+          <div class="nz-name">${p.name}</div>
+          <div class="nz-ar">${p.ar}</div>
+        </button>`).join('')}
+    </div>
+    <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem">
+      <div style="flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;border:1px solid var(--border)">
+        <div style="height:100%;width:${(nzDoneToday/5)*100}%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;transition:width .4s ease"></div>
+      </div>
+      <span style="font-size:.72rem;color:var(--text2)">${nzDoneToday}/৫</span>
+    </div>
+  </div>
+
+  <!-- ROZA & TASBIH -->
+  <div class="tracker-section" style="animation-delay:.1s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(0,212,200,.12)">📿</div>
+      অন্যান্য ইবাদত
+    </div>
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">🌙 রোজা রেখেছেন?</div>
+        <div class="toggle-sub">আজকের রোজা</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="rozaToggle" ${record.roza?'checked':''} onchange="toggleIbadat('roza')">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+    <div style="height:1px;background:var(--border);margin:.3rem 0"></div>
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">📿 তাসবিহ পড়েছেন?</div>
+        <div class="toggle-sub">সুবহানাল্লাহ / আলহামদুলিল্লাহ / আল্লাহু আকবার</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="tasbihToggle" ${record.tasbih?'checked':''} onchange="toggleIbadat('tasbih')">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- QURAN PROGRESS -->
+  <div class="tracker-section" style="animation-delay:.15s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(240,192,96,.12)">📖</div>
+      কুরআন তেলাওয়াত
+    </div>
+    <div class="quran-prog-row">
+      <span style="font-size:.8rem;color:var(--text2)">আজকের তেলাওয়াত:</span>
+      <input type="number" class="qprog-input" id="quranPages" value="${record.quranPages||0}" min="0" max="604" placeholder="০" onchange="updateQuranPages()">
+      <span style="font-size:.78rem;color:var(--text3)">পৃষ্ঠা</span>
+    </div>
+    <div class="quran-prog-row" style="margin-top:.5rem">
+      <div class="qprog-bar-wrap">
+        <div class="qprog-bar" id="quranBar" style="width:${Math.min(((record.quranPages||0)/20)*100,100)}%"></div>
+      </div>
+      <span class="qprog-lbl" id="quranBarLbl">${record.quranPages||0}/২০ পৃষ্ঠা</span>
+    </div>
+    <div class="qprog-btns">
+      ${[1,2,5,10,20].map(p=>`<button class="qprog-btn" onclick="addQuranPages(${p})">+${p}</button>`).join('')}
+    </div>
+    <div class="toggle-row" style="padding-top:.7rem">
+      <div>
+        <div class="toggle-label">✅ কুরআন তেলাওয়াত করেছেন?</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="quranToggle" ${record.quran?'checked':''} onchange="toggleIbadat('quran')">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- SAVE BUTTON -->
+  <button class="save-btn" onclick="saveToday()">✅ আজকের আমল সংরক্ষণ করুন</button>
+
+  <!-- WEEKLY REPORT -->
+  <div class="tracker-section" style="margin-top:1.5rem;animation-delay:.2s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(74,222,128,.12)">📊</div>
+      সাপ্তাহিক রিপোর্ট (গত ৭ দিন)
+    </div>
+    <div class="week-grid">${weekBars}</div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem;font-size:.7rem;color:var(--text3)">
+      <span>🟩 ৮০%+ চমৎকার</span>
+      <span>🟨 ৫০%+ ভালো</span>
+      <span>🟦 >০% শুরু হয়েছে</span>
+      <span>⬛ কোনো আমল নেই</span>
+    </div>
+  </div>
+
+  <!-- MONTHLY SUMMARY -->
+  <div class="tracker-section" style="animation-delay:.25s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(155,109,255,.12)">📈</div>
+      মাসিক সারসংক্ষেপ (গত ৩০ দিন)
+    </div>
+    <div class="report-grid">
+      <div class="rep-card">
+        <div class="rep-icon">🔥</div>
+        <div class="rep-val" style="color:var(--orange)">${streak}</div>
+        <div class="rep-lbl">স্ট্রিক (দিন)</div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-icon">🕌</div>
+        <div class="rep-val" style="color:var(--gold)">${stats.nzTotal}</div>
+        <div class="rep-lbl">মোট নামাজ</div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-icon">🌙</div>
+        <div class="rep-val" style="color:var(--teal)">${stats.rozaTotal}</div>
+        <div class="rep-lbl">মোট রোজা</div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-icon">📖</div>
+        <div class="rep-val" style="color:var(--purple)">${stats.quranTotal}</div>
+        <div class="rep-lbl">কুরআন দিন</div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-icon">✅</div>
+        <div class="rep-val" style="color:var(--green)">${stats.complete}</div>
+        <div class="rep-lbl">পূর্ণ দিন</div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-icon">📅</div>
+        <div class="rep-val" style="color:var(--rose)">${stats.total>0?Math.round((stats.complete/stats.total)*100):0}%</div>
+        <div class="rep-lbl">সফলতার হার</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30-DAY ACTIVITY HEATMAP -->
+  <div class="tracker-section" style="animation-delay:.3s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(240,192,96,.12)">🗓</div>
+      গত ৩০ দিনের কার্যকলাপ
+      <span style="margin-left:auto;font-size:.68rem;color:var(--text3)">গাঢ় = বেশি আমল</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;margin-bottom:.4rem">
+      ${['রবি','সোম','মঙ্গল','বুধ','বৃহ','শুক্র','শনি'].map(d=>`<div class="cal-day-lbl">${d}</div>`).join('')}
+    </div>
+    <div class="cal-grid">${calCells.join('')}</div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.7rem;font-size:.68rem;color:var(--text3);align-items:center">
+      <span>কম</span>
+      <div style="display:flex;gap:.25rem">
+        ${['var(--border)','rgba(0,212,200,.5)','rgba(240,192,96,.6)','rgba(74,222,128,.7)'].map(c=>`<div style="width:12px;height:12px;border-radius:3px;background:${c}"></div>`).join('')}
+      </div>
+      <span>বেশি</span>
+    </div>
+  </div>
+
+  <!-- MOTIVATIONAL HADITH -->
+  <div style="background:linear-gradient(135deg,rgba(240,192,96,.07),rgba(155,109,255,.06));border:1.5px solid rgba(240,192,96,.18);border-radius:18px;padding:1.6rem;margin-top:.5rem;text-align:center;animation:fup .4s ease .35s both">
+    <div style="font-family:'Amiri Quran',serif;font-size:1.4rem;color:var(--gold2);direction:rtl;margin-bottom:.6rem">أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ</div>
+    <div style="font-size:.84rem;color:var(--text2);line-height:1.8">"আল্লাহর কাছে সবচেয়ে প্রিয় আমল হলো যা নিয়মিতভাবে করা হয়, যদিও তা পরিমাণে কম হোক।" — সহীহ বুখারী</div>
+  </div>`;
+
+  setMain(html);scroll0();
+}
+
+/* ===== TRACKER ACTIONS ===== */
+function toggleNamaz(prayer){
+  const {data,key,record}=getTodayRecord();
+  record.namaz[prayer]=!record.namaz[prayer];
+  data[key]=record;
+  saveTrackerData(data);
+  const btn=document.getElementById('nzb-'+prayer);
+  if(btn)btn.classList.toggle('done',record.namaz[prayer]);
+  // update progress bar
+  const nzDone=Object.values(record.namaz).filter(Boolean).length;
+  const bar=document.querySelector('.namaz-grid + div .qprog-bar-wrap div');
+  if(bar)bar.style.width=(nzDone/5*100)+'%';
+  const lbl=document.querySelector('.namaz-grid + div span');
+  if(lbl)lbl.textContent=nzDone+'/৫';
+  // update title
+  const title=document.querySelector('.nz-btn + .nz-btn + .nz-btn + .nz-btn + .nz-btn')?.closest('.tracker-section')?.querySelector('.tracker-section-title');
+  updateRingAndTitle(record);
+  toast(record.namaz[prayer]?'✅ নামাজ যোগ হয়েছে':'❌ বাদ দেওয়া হয়েছে', record.namaz[prayer]?'tt':'tr');
+}
+
+function toggleIbadat(type){
+  const {data,key,record}=getTodayRecord();
+  const el=document.getElementById(type+'Toggle');
+  if(el)record[type]=el.checked;
+  data[key]=record;
+  saveTrackerData(data);
+  updateRingAndTitle(record);
+  toast(record[type]?'✅ সংরক্ষিত হয়েছে':'❌ বাদ দেওয়া হয়েছে', record[type]?'tt':'tr');
+}
+
+function updateQuranPages(){
+  const {data,key,record}=getTodayRecord();
+  const val=parseInt(document.getElementById('quranPages')?.value)||0;
+  record.quranPages=val;
+  if(val>0)record.quran=true;
+  data[key]=record;
+  saveTrackerData(data);
+  const bar=document.getElementById('quranBar');
+  const lbl=document.getElementById('quranBarLbl');
+  if(bar)bar.style.width=Math.min((val/20)*100,100)+'%';
+  if(lbl)lbl.textContent=val+'/২০ পৃষ্ঠা';
+  // sync toggle
+  const toggle=document.getElementById('quranToggle');
+  if(toggle)toggle.checked=val>0;
+}
+
+function addQuranPages(n){
+  const inp=document.getElementById('quranPages');
+  if(inp){inp.value=Math.max(0,parseInt(inp.value||0)+n);updateQuranPages();}
+}
+
+function updateRingAndTitle(record){
+  const nzDone=Object.values(record.namaz).filter(Boolean).length;
+  const todayScore=Math.round((nzDone/5)*60+(record.quran?20:0)+(record.roza?10:0)+(record.tasbih?10:0));
+  const ring=document.querySelector('.ring-fill');
+  const pct=document.querySelector('.ring-pct');
+  if(ring){
+    const c=2*Math.PI*46;
+    ring.setAttribute('stroke-dashoffset',c-(todayScore/100)*c);
+    ring.setAttribute('stroke',todayScore>=80?'var(--green)':todayScore>=50?'var(--gold)':'var(--teal)');
+  }
+  if(pct)pct.textContent=todayScore+'%';
+  // title
+  const titleEl=document.querySelector('.tracker-section .tracker-section-title span');
+  if(titleEl)titleEl.textContent='আজ '+nzDone+'/৫ পড়েছেন';
+}
+
+function saveToday(){
+  const {data,key,record}=getTodayRecord();
+  const nzDone=Object.values(record.namaz).filter(Boolean).length;
+  record.namazCount=nzDone;
+  record.complete=nzDone>=5&&record.quran;
+  record.saved=true;
+  data[key]=record;
+  saveTrackerData(data);
+  toast('✅ আজকের আমল সংরক্ষিত হয়েছে! আল্লাহ কবুল করুন 🤲','tt');
+  setTimeout(()=>renderTracker(),1200);
+}
 
 /* ===== THEME TOGGLE ===== */
 function toggleTheme(){
@@ -608,6 +1055,7 @@ function showPage(p,addToHistory=true){
   else if(p==='kadr')renderKadr();
   else if(p==='hadith')renderHadith();
   else if(p==='names')renderNames();
+  else if(p==='tracker')renderTracker();
   else if(p==='tasbih')renderTasbih();
   else if(p==='zakat')renderZakat();
   else if(p==='prayer')renderPrayer();
@@ -616,6 +1064,8 @@ function showPage(p,addToHistory=true){
 
 /* ===== HOME ===== */
 function renderHome(){
+  const stats=getMonthStats();
+  const streak=stats.streak;
   setMain(`<div class="home-wrap">
     <div class="home-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     <div class="home-title">আল-ইসলাম অ্যাপ</div>
@@ -624,13 +1074,14 @@ function renderHome(){
       <div class="sp"><div class="sdot" style="background:var(--gold)"></div>১১৪ সূরা</div>
       <div class="sp"><div class="sdot" style="background:var(--teal)"></div>১৬ দোয়া</div>
       <div class="sp"><div class="sdot" style="background:var(--purple)"></div>১৫ হাদিস</div>
-      <div class="sp"><div class="sdot" style="background:var(--orange)"></div>৯৯ নাম</div>
+      <div class="sp"><div class="sdot" style="background:var(--orange)"></div>🔥 ${streak} দিন স্ট্রিক</div>
     </div>
     <div class="qgrid">
       <div class="qcard" onclick="showPage('quran')"><span class="qi">📖</span><div class="qn">কোরআন</div><div class="qs">১১৪ সূরা</div></div>
       <div class="qcard" onclick="showPage('dua')"><span class="qi">🤲</span><div class="qn">দোয়া</div><div class="qs">দৈনিক</div></div>
       <div class="qcard" onclick="showPage('kadr')"><span class="qi">🌙</span><div class="qn">শবে কদর</div><div class="qs">বিশেষ রজনী</div></div>
       <div class="qcard" onclick="showPage('hadith')"><span class="qi">📜</span><div class="qn">হাদিস</div><div class="qs">নির্বাচিত</div></div>
+      <div class="qcard" onclick="showPage('tracker')"><span class="qi">📊</span><div class="qn">ট্র্যাকার</div><div class="qs">🔥 ${streak} স্ট্রিক</div></div>
       <div class="qcard" onclick="showPage('names')"><span class="qi">✨</span><div class="qn">৯৯ নাম</div><div class="qs">আসমাউল হুসনা</div></div>
       <div class="qcard" onclick="showPage('zakat')"><span class="qi">💰</span><div class="qn">যাকাত</div><div class="qs">হিসাব ও তথ্য</div></div>
       <div class="qcard" onclick="showPage('tasbih')"><span class="qi">📿</span><div class="qn">তাসবিহ</div><div class="qs">গণনা</div></div>
@@ -763,7 +1214,7 @@ function renderKadr(){
     <div class="kadr-icon">🌙</div>
     <div class="kadr-title">لَيْلَةُ الْقَدْرِ</div>
     <div class="kadr-subtitle">শবে কদর — হাজার মাসের চেয়ে উত্তম</div>
-    <div class="kadr-desc">শবে কদর হলো একটি পবিত্র রজনী যা রমজান মাসের শেষ দশকের বিজোড় রাত্রিগুলোর মধ্যে অবস্থিত (২১, ২৩, ২৫, ২৭, ২৯ রমজান)। এই রাতে আল্লাহ তা'আলা কোরআন নাযিল করেছেন এবং এই রাতের ইবাদত হাজার মাস অর্থাৎ ৮৩ বছরেরও বেশি সময়ের ইবাদতের চেয়ে উত্তম।</div>
+    <div class="kadr-desc">শবে কদর হলো একটি পবিত্র রজনী যা রমজান মাসের শেষ দশকের বিজোড় রাত্রিগুলোর মধ্যে অবস্থিত (২১, ২৩, ২৫, ২৭, ২৯ রমজান)। এই রাতের ইবাদত হাজার মাস অর্থাৎ ৮৩ বছরেরও বেশি সময়ের ইবাদতের চেয়ে উত্তম।</div>
   </div>
   <div class="dua-grid">`;
   KADR_DUAS.forEach((d,i)=>{
@@ -805,7 +1256,7 @@ function renderDuaContent(duas){
   h+=`</div>`;setMain(h);scroll0();
 }
 
-/* ===== HADITH — FIXED with Arabic + Transliteration + Bengali ===== */
+/* ===== HADITH ===== */
 async function renderHadith(){
   setMain('<div class="loader"><div class="spin"></div><p>হাদিস লোড হচ্ছে...</p></div>');
   renderHadithContent(BUILTIN_HADITHS);
