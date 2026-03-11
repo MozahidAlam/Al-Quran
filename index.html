@@ -329,6 +329,12 @@ header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-fi
 .tracker-section-title{display:flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1.5px solid var(--border)}
 .ts-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 
+/* Tracker extra inputs */
+.trk-row{display:flex;align-items:center;justify-content:space-between;gap:.9rem;padding:.45rem 0}
+.trk-label{font-size:.84rem;color:var(--text2);font-weight:500}
+.trk-input{background:var(--input-bg);border:1.5px solid var(--border2);border-radius:9px;padding:.45rem .7rem;color:var(--text);font-family:inherit;font-size:.86rem;width:140px;outline:none;text-align:center;transition:border-color .2s}
+.trk-input:focus{border-color:var(--gold)}
+
 /* Toggle switch */
 .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
 .toggle-label{font-size:.87rem;color:var(--text);font-weight:500}
@@ -443,6 +449,8 @@ footer{text-align:center;padding:1.8rem 1.2rem 1rem;border-top:1px solid var(--b
   .bm-card button{align-self:flex-end}
   .toggle-row{flex-direction:column;align-items:flex-start;gap:.45rem}
   .toggle-sw{align-self:flex-end}
+  .trk-row{flex-direction:column;align-items:flex-start}
+  .trk-input{width:100%}
   .toast{right:50%;transform:translateX(50%) translateY(12px) scale(.95)}
   .toast.show{transform:translateX(50%) translateY(0) scale(1)}
 }
@@ -617,7 +625,7 @@ function saveTrackerData(d){localStorage.setItem('ibadatTracker',JSON.stringify(
 function getTodayRecord(){
   const d=getTrackerData();
   const k=todayKey();
-  if(!d[k])d[k]={namaz:{fajr:false,dhuhr:false,asr:false,maghrib:false,isha:false},roza:false,quran:0,tasbih:false,quranPages:0,saved:false};
+  if(!d[k])d[k]={namaz:{fajr:false,dhuhr:false,asr:false,maghrib:false,isha:false},roza:false,quran:0,tasbih:false,quranPages:0,saved:false,hadithCount:0,studyHours:0,sleepHours:0,exerciseHours:0,classAttended:false};
   return{data:d,key:k,record:d[k]};
 }
 function saveTodayRecord(record){
@@ -776,7 +784,7 @@ function renderTracker(){
   <div class="tracker-section" style="animation-delay:.05s">
     <div class="tracker-section-title">
       <div class="ts-icon" style="background:rgba(240,192,96,.12)">🕌</div>
-      নামাজ ট্র্যাকার — আজ ${nzDoneToday}/৫ পড়েছেন
+      নামাজ ট্র্যাকার — <span id="namazTodayLbl">আজ ${nzDoneToday}/৫ পড়েছেন</span>
       <span style="margin-left:auto;font-size:.7rem;color:var(--text3)">${new Date().toLocaleDateString('bn-BD')}</span>
     </div>
     <div class="namaz-grid" id="namazGrid">
@@ -790,9 +798,9 @@ function renderTracker(){
     </div>
     <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem">
       <div style="flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;border:1px solid var(--border)">
-        <div style="height:100%;width:${(nzDoneToday/5)*100}%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;transition:width .4s ease"></div>
+        <div id="namazBar" style="height:100%;width:${(nzDoneToday/5)*100}%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;transition:width .4s ease"></div>
       </div>
-      <span style="font-size:.72rem;color:var(--text2)">${nzDoneToday}/৫</span>
+      <span id="namazLbl" style="font-size:.72rem;color:var(--text2)">${nzDoneToday}/৫</span>
     </div>
   </div>
 
@@ -851,6 +859,41 @@ function renderTracker(){
       </div>
       <label class="toggle-sw">
         <input type="checkbox" id="quranToggle" ${record.quran?'checked':''} onchange="toggleIbadat('quran')">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- DAILY HABITS -->
+  <div class="tracker-section" style="animation-delay:.18s">
+    <div class="tracker-section-title">
+      <div class="ts-icon" style="background:rgba(155,109,255,.12)">🧭</div>
+      Daily Habits
+    </div>
+    <div class="trk-row">
+      <div class="trk-label">📜 Holy Hadith (Number)</div>
+      <input type="number" class="trk-input" id="hadithCount" min="0" step="1" inputmode="numeric" value="${record.hadithCount||0}" onchange="updateDailyHabits()">
+    </div>
+    <div class="trk-row">
+      <div class="trk-label">📚 Academic Study (Hour)</div>
+      <input type="number" class="trk-input" id="studyHours" min="0" step="0.5" inputmode="decimal" value="${record.studyHours||0}" onchange="updateDailyHabits()">
+    </div>
+    <div class="trk-row">
+      <div class="trk-label">😴 Sleeping Hours</div>
+      <input type="number" class="trk-input" id="sleepHours" min="0" step="0.5" inputmode="decimal" value="${record.sleepHours||0}" onchange="updateDailyHabits()">
+    </div>
+    <div class="trk-row">
+      <div class="trk-label">💪 Physical Exercise (Hour)</div>
+      <input type="number" class="trk-input" id="exerciseHours" min="0" step="0.5" inputmode="decimal" value="${record.exerciseHours||0}" onchange="updateDailyHabits()">
+    </div>
+    <div style="height:1px;background:var(--border);margin:.3rem 0"></div>
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">🏫 Class (Yes/No)</div>
+        <div class="toggle-sub">Did you attend class today?</div>
+      </div>
+      <label class="toggle-sw">
+        <input type="checkbox" id="classAttendedToggle" ${record.classAttended?'checked':''} onchange="toggleExtraBool('classAttended')">
         <span class="toggle-track"></span>
       </label>
     </div>
@@ -953,12 +996,10 @@ function toggleNamaz(prayer){
   if(btn)btn.classList.toggle('done',record.namaz[prayer]);
   // update progress bar
   const nzDone=Object.values(record.namaz).filter(Boolean).length;
-  const bar=document.querySelector('.namaz-grid + div .qprog-bar-wrap div');
+  const bar=document.getElementById('namazBar');
   if(bar)bar.style.width=(nzDone/5*100)+'%';
-  const lbl=document.querySelector('.namaz-grid + div span');
+  const lbl=document.getElementById('namazLbl');
   if(lbl)lbl.textContent=nzDone+'/৫';
-  // update title
-  const title=document.querySelector('.nz-btn + .nz-btn + .nz-btn + .nz-btn + .nz-btn')?.closest('.tracker-section')?.querySelector('.tracker-section-title');
   updateRingAndTitle(record);
   toast(record.namaz[prayer]?'✅ নামাজ যোগ হয়েছে':'❌ বাদ দেওয়া হয়েছে', record.namaz[prayer]?'tt':'tr');
 }
@@ -967,17 +1008,25 @@ function toggleIbadat(type){
   const {data,key,record}=getTodayRecord();
   const el=document.getElementById(type+'Toggle');
   if(el)record[type]=el.checked;
+  if(type==='quran'&&el&&!el.checked){
+    record.quranPages=0;
+    const inp=document.getElementById('quranPages');
+    if(inp)inp.value=0;
+    const bar=document.getElementById('quranBar');
+    const lbl=document.getElementById('quranBarLbl');
+    if(bar)bar.style.width='0%';
+    if(lbl)lbl.textContent='0/20 pages';
+  }
   data[key]=record;
   saveTrackerData(data);
   updateRingAndTitle(record);
-  toast(record[type]?'✅ সংরক্ষিত হয়েছে':'❌ বাদ দেওয়া হয়েছে', record[type]?'tt':'tr');
+  toast(record[type]?'Saved':'Removed', record[type]?'tt':'tr');
 }
-
 function updateQuranPages(){
   const {data,key,record}=getTodayRecord();
   const val=parseInt(document.getElementById('quranPages')?.value)||0;
   record.quranPages=val;
-  if(val>0)record.quran=true;
+  record.quran=val>0;
   data[key]=record;
   saveTrackerData(data);
   const bar=document.getElementById('quranBar');
@@ -987,11 +1036,32 @@ function updateQuranPages(){
   // sync toggle
   const toggle=document.getElementById('quranToggle');
   if(toggle)toggle.checked=val>0;
+  updateRingAndTitle(record);
 }
 
 function addQuranPages(n){
   const inp=document.getElementById('quranPages');
   if(inp){inp.value=Math.max(0,parseInt(inp.value||0)+n);updateQuranPages();}
+}
+
+function updateDailyHabits(){
+  const {data,key,record}=getTodayRecord();
+  record.hadithCount=parseInt(document.getElementById('hadithCount')?.value)||0;
+  record.studyHours=parseFloat(document.getElementById('studyHours')?.value)||0;
+  record.sleepHours=parseFloat(document.getElementById('sleepHours')?.value)||0;
+  record.exerciseHours=parseFloat(document.getElementById('exerciseHours')?.value)||0;
+  data[key]=record;
+  saveTrackerData(data);
+  toast('Saved','tt');
+}
+
+function toggleExtraBool(field){
+  const {data,key,record}=getTodayRecord();
+  const el=document.getElementById(field+"Toggle");
+  if(el)record[field]=el.checked;
+  data[key]=record;
+  saveTrackerData(data);
+  toast(record[field]?"Saved":"Removed", record[field]?"tt":"tr");
 }
 
 function updateRingAndTitle(record){
@@ -1006,7 +1076,7 @@ function updateRingAndTitle(record){
   }
   if(pct)pct.textContent=todayScore+'%';
   // title
-  const titleEl=document.querySelector('.tracker-section .tracker-section-title span');
+  const titleEl=document.getElementById('namazTodayLbl');
   if(titleEl)titleEl.textContent='আজ '+nzDone+'/৫ পড়েছেন';
 }
 
@@ -1525,3 +1595,11 @@ renderHome();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
